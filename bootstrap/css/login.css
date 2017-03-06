@@ -1,0 +1,101 @@
+.nav-tabs>li.active>a, 
+.nav-tabs>li.active>a:focus, 
+.nav-tabs>li.active>a:hover{
+    background-color: rgba(44,44,44,.75);
+    border: 1px solid rgba(44,44,44,.75);
+    color: white;
+}
+
+.nav-tabs.nav-justified>.active>a, 
+.nav-tabs.nav-justified>.active>a:focus, 
+.nav-tabs.nav-justified>.active>a:hover {
+     border: 1px solid rgba(44,44,44,.75);
+    border-bottom-color: rgba(44,44,44,.75);
+}
+
+.nav-tabs>li>a{
+    background-color: rgba(255,255,255,0.25);
+    color: white;
+}
+   
+.nav-tabs>li>a:focus, 
+.nav-tabs>li>a:hover{
+    background-color: #ddd;
+    border: 1px solid #ddd;
+    color: #2d2c2a;
+}
+
+#login{
+    border: 11px solid rgba(44,44,44,.25);
+    border-radius: 0 0 4px 4px;
+    background-color: rgba(44,44,44,.75);
+    padding: 20px 20px 70px 20px;
+}
+
+#register{
+    border: 11px solid rgba(44,44,44,.25);
+    border-radius: 0 0 4px 4px;
+    background-color: rgba(44,44,44,.75);
+    padding: 20px 20px 60px 20px;
+}
+.rowText{
+    padding-top: 10px;    
+}
+
+
+input[type=text], input[type=password], select{
+    background-color: #3a3a3a;
+    border: 1px solid black;
+    color: #b5b5b5;  
+    padding-left: 10px;
+}
+
+input#username{
+   background-image:url(/user.png);
+    background-repeat:no-repeat;
+    background-position:6px;
+    background-size: auto;
+    padding: 10px 10px 10px 35px;
+}
+
+input#password{
+   background-image:url(/pass.png);
+    background-repeat:no-repeat;
+    background-position:6px;
+    background-size: auto;
+    padding: 10px 10px 10px 35px;
+}
+
+.rowBtn{
+    padding: 20px 60px 20px;
+    float:right;
+}
+
+.rowBtn-reg{
+    padding: 20px 20px 20px;
+    float:right;
+}
+
+#loginBtn{
+    padding: 5px 20px 5px 20px;
+    background-color: #3e6e7f;
+    border: none;
+    color: white;
+}
+
+#regBtn{
+    padding: 5px 20px 5px 20px;
+    background-color: #378247;
+    border: none;
+    color: white;
+}
+
+#firstName, #lastName,select{
+    padding: 10px;
+    width: 170px;
+}
+
+#email, #regPass, #confirmPass, #idNumber{
+    padding: 10px;
+    width: 345px;
+}
