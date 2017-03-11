@@ -13,11 +13,10 @@ body {
 }
 
 
-
 #Collab{
     color: white;
     font-size: 22px;
-    padding: 10px 80px 5px 10px;
+    padding: 10px 95px 5px 30px;
 }
 
 .nav>li>a>img{
@@ -27,9 +26,27 @@ body {
 }
 
 #user a{
-    padding: 0px 10px 10px 10px;
-
+    padding: 0px 10px 10px 0px;
+    margin-left: 10px;
+    margin-top: -3spx;
 }
+
+#searchBtn{
+    background-color: transparent;
+    font-size: 18px;
+    padding-right: 15px;
+    margin-left: -10px;
+    border-bottom: 1px solid white;
+    margin-top: -6px;
+    border-radius: 0px;
+    padding-bottom: 2px;
+}
+
+#header .navbar-nav>li>a#searchBtn:focus, 
+#header .navbar-nav>li>a#searchBtn:hover{
+    border-radius: 0px;
+}
+
 li{
     padding-left: 5px;
     padding-right: 5px;
@@ -51,29 +68,55 @@ li{
 }
 
 .navbar-default .navbar-nav>li>a {
-    color: white;
+    color: white;    
+}
+
+.navbar-right{
+    margin-right: 60px;
+}
+.dropdown-menu>li{
+    padding-left: 0px;
     
 }
 
-.choice>a:hover {
-    color: #f9a825;
-  
+#dropdownMenu a{
+  padding-left: 10px;
+    padding-right: 20px;
+    padding-top: 2px;
+    margin-left:2px;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus{
+    background-color: #fffde7;
+
 }
 
 .badge{
     background-color: #ff3d00;
     color: white;
 }
-.navbar-default 
-.navbar-nav>.active>a, 
-.navbar-default .navbar-nav>.active>a:focus, 
-.navbar-default .navbar-nav>.active>a:hover{
+#header .navbar-nav>.active>a, 
+#header .navbar-nav>.active>a:focus, 
+#header .navbar-nav>.active>a:hover{
     border-radius: 6px;
     color: #684d0a;
     background-color: #fff59d;
 }
+
+#header .navbar-nav>li>a:focus, #header .navbar-nav>li>a:hover{
+    background-color: transparent;
+    color: white;
+    border-radius: 6px;
+}
+
+#header .navbar-nav>#user>a:focus, #header .navbar-nav>#user>a:hover{
+    background-color: transparent;
+    color: #F57F17;
+    border-radius: 6px;
+}
 .navbar-right{
     padding-top:5px;
+    padding-right: 20px;
 }
 
 #search{
@@ -81,6 +124,7 @@ li{
     background-color: transparent;
     border-bottom: 1px solid white;
     color: white;
+    padding-top: 5px;
 }
 
 #search::-webkit-input-placeholder {
@@ -100,7 +144,43 @@ li{
     padding-bottom:5px;
 }
 
-#followBar a, #coursesBar a{
+#deptBar{
+    background-color: white;
+
+    width:200px;
+    max-height: 500px;
+    min-height: 320px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 0px;
+    box-shadow: 0px 1px 8px #888;
+    padding-top:5px;
+    padding-left:0px;
+    padding-bottom:5px;
+}
+
+#deptBar a{
+    color: black;
+    padding-left:5px;
+    padding-right: 10px;
+    padding-top:10px;
+    padding-bottom:10px;
+    float:left;
+}
+
+#deptBar a:hover, #deptBar a:focus{
+    background-color: #FFEE58;
+    text-decoration: none;
+    color: black;
+}
+
+
+#deptBar::-webkit-scrollbar {
+    width: 0px;
+}
+
+
+#followBar a, #coursesBar a {
     color: black;
     padding-left:5px;
     padding-top:10px;
@@ -131,13 +211,36 @@ li{
     
 }
 
+#coursesBar .navbar-nav>.active>a, 
+#coursesBar .navbar-nav>.active>a:focus, 
+#coursesBar .navbar-nav>.active>a:hover{
+    width:140px;
+    border-radius:0px;
+    float:left;
+    padding-right: 70px;
+}
+
 #followBar .navbar-collapse.collapse, #coursesBar .navbar-collapse.collapse{
     padding-left:0px;
 }
 
-#navi, #navi1{
-    padding-left:80px;
-    padding-top: 20px;
+#navi{
+    padding-left:95px;
+    padding-top: 4px;
+    position:fixed;
+}
+
+
+#navi1{
+    padding-left:95px;
+    padding-top: 160px;
+    position:fixed;
+}
+
+#navi2{
+    padding-left:60px;
+    padding-top: 4px;
+    position:fixed;
 }
 
 .col-md-10.section{
@@ -180,9 +283,10 @@ li{
     color: #9d4a00;
 }
 #collabBtn{
+    font-size:15px;
     background-color: #f57f17;
     color: white;
-    padding: 5px 10px 8px 10px;
+    padding: 5px 10px 7px 10px;
     border-radius: 6px;
 }
 
@@ -198,9 +302,12 @@ li{
     border-bottom: 1px solid #f57f17;
     color: #f57f17;
     float:right;
-
+    background-color: transparent;
 }
 
+#filterForm{
+    margin-bottom: -20px;
+}
 #filter::-webkit-input-placeholder {
     color: #f57f17;
 }
@@ -216,6 +323,19 @@ li{
     padding-bottom: 20px;
 }
 
+.row.collabSubj{
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: -20px;
+    margin-right: -10px;
+    background-color: white;
+    border-radius: 6px 6px 0px 0px;
+    border: 1px solid #fdd835;
+    
+}
+
 .col-md-3.byLine{
     padding-top: 20px;
     text-align:center;
@@ -229,6 +349,7 @@ li{
     padding-bottom: 20px;
     border: 1px solid #fdd835;   
 }
+
 
 .row{
     margin-right: 20px;
@@ -257,12 +378,16 @@ li{
 
 .followBtn{
     float: right;
+    font-size: 14px;
     background-color: #f9a825;
     padding: 5px 10px 5px 10px;
     color: white;
     border-radius: 6px;
 }
 
+.followBtn a{
+    color: white
+}
 .title, .title .titleThread{
     padding: 10px 0px 2px 0;
     font-weight: bold;
@@ -287,3 +412,89 @@ li{
     color: #656565;
 }
 
+.subject{
+    border-bottom: 4px solid #fdd835;
+    background-color: #fffde7;
+    border-radius: 6px 6px 0px 0px;
+    margin-left: -20px;
+    margin-right: -21px;
+    margin-top: -20px;
+    padding: 10px 0px 10px 25px;
+    color: #f57f17;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+textarea{
+    resize: none;
+}
+
+.nav.collapse.collMenu{
+    padding-left: 20px;
+}
+
+.nav.collapse.collMenu.in a{
+   font-size: 12px;
+}
+
+#cobMenu a:hover, #cobMenu a:focus,
+#ccsMenu a:hover, #ccsMenu a:focus,
+#coeMenu a:hover, #coeMenu a:focus,
+#claMenu a:hover, #claMenu a:focus,
+#cosMenu a:hover, #cosMenu a:focus,
+#cedMenu a:hover, #cedMenu a:focus{
+    color: #684d0a;
+    background-color: #fff59d;
+}
+
+#claMenu a, #cosMenu a{
+    padding-right: 30px;
+}
+#collDept{
+    background-color: white;
+    padding: 20px 10px 10px 25px;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    color: #f57f17; 
+    font-size:14px; 
+    font-weight: bolder;
+    position: fixed;
+    z-index: 1;
+}
+
+#colleges{
+    padding-top: 45px;
+}
+
+.deptClass{
+    font-weight: bold;
+    padding: 0px 0px 5px 0px;
+    margin-left: -10px;
+    margin-bottom: -10px;
+    color: #f57f17;
+    font-size: 20px;
+}
+
+.subjClass{
+    border-bottom: 2px solid black;
+    margin-bottom: 10px;
+    font-size: 24px;
+    
+}
+.subjA a{
+    color: black;
+}
+
+.subjA a>small{
+    color: gray;
+    font-size: 14px;
+}
+.subjA a:hover, .subjA a:focus, .subjA a>small:hover, .subjA a>small:focus{
+    color: orange;
+    text-decoration: none
+}
+
+.row.thread.subj{
+    padding: 10px 20px 20px 20px;
+    border: 1px solid #fdd835;   
+}

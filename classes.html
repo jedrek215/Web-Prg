@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/page.css">
+    <link rel="stylesheet" href="../bootstrap/css/modal.css">
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+    <link href="/bootstrap/fonts/Luna.woff" rel="stylesheet">
+    <script src="../jquery/jquery-3.1.1.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../jquery/navigation.js"></script>
+    <title>Collab - Classes</title>
+     <link rel="shortcut icon" href="icon.jpg" type="icon">
+</head>
+
+<body style="background-color: #fffde7">
+   <!------------------TOP NAVIGATION-------------------->
+    <nav class="navbar navbar-default " id="header">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><span style="font-family:'luna'" id="Collab">Collab</span></a>
+        </div>
+        <ul class="nav navbar-nav" id="menuBar">
+          <li><a href="/homepage.html">Home</a></li>
+          <li><a href="#">Notifications <span class="badge">3</span></a></li>
+          <li><a href="/classes.html">Classes</a></li>            
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><form action="" method="GET">
+            <input type="text" id="search" placeholder="Search...">
+            </form>
+            </li>
+            <li><a href="#" id="searchBtn"><span class="glyphicon glyphicon-search"></span></a></li>
+          <li class="dropdown" id="user"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <img src="userIcon.jpg" width="35" ></a>
+              <ul class="dropdown-menu" id="dropdownMenu">
+                <li> <a href="#editProfile" data-toggle="modal">Edit Profile</a></li>
+                <li><a href="index.html">Logout</a></li>
+              </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <!-----------------------NAVIGATION PANE------------------>
+            <div class="col-md-2">
+                <div class="nav-side-menu" id="navi2">
+                      <div class="navbar navbar-default" id="deptBar" role="navigation">
+                            <div id="collDept">Colleges & Departments</div>
+                        <div class="navbar-header">
+                          </div>
+                          <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                          <ul class="nav navbar-nav">
+                            <div id="colleges">
+                            <li><a href="#" data-toggle="collapse" data-target="#cobMenu" aria-expanded="false">Business <i class="fa fa-sort-desc" style="margin-left: 75px; color: gray;" aria-hidden="true"></i></a></li>
+                                    <ul class="nav collapse collMenu" id="cobMenu" role="menu" aria-labelledby="btn-1">
+                                        <li><a href="#">Accountancy</a></li>
+                                        <li><a href="#">Commercial Law</a></li>
+                                        <li><a href="#">Decision Sciences & Innovation Department</a></li>
+                                        <li><a href="#">Management of Financial Institutions</a></li>
+                                        <li><a href="#">Management and Organization Department</a></li>
+                                        <li><a href="#">Marketing Management</a></li>
+                                    </ul>   
+                            <li><a href="#" data-toggle="collapse" data-target="#ccsMenu" aria-expanded="false">Computer Studies <i class="fa fa-sort-desc" style="margin-left: 20px; color: gray;" aria-hidden="true"></i> </a></li>
+                                <ul class="nav collapse collMenu" id="ccsMenu" role="menu" aria-labelledby="btn-1">
+                                        <li><a href="#">Computer Technology</a></li>
+                                        <li><a href="#">Information Technology</a></li>
+                                        <li><a href="#">Software Technology</a></li>
+                                </ul>
+                            <li><a href="#" data-toggle="collapse" data-target="#cedMenu" aria-expanded="false">Education<i class="fa fa-sort-desc" style="margin-left: 72px; color: gray;" aria-hidden="true"></i></a></li>
+                                <ul class="nav collapse collMenu" id="cedMenu" role="menu" aria-labelledby="btn-1">
+                                    <li><a href="#">Counseling and Educational Psychology Department</a></li>
+                                    <li><a href="#">Department of English and Applied Linguistics</a></li>
+                                    <li><a href="#">Educational Leadership and Management Department</a></li>
+                                    <li><a href="#">Physical Education Department</a></li>
+                                    <li><a href="#">Science Education Department</a></li>
+                                </ul>
+                            <li><a href="#" data-toggle="collapse" data-target="#coeMenu" aria-expanded="false">Engineering<i class="fa fa-sort-desc" style="margin-left: 60px; color: gray;" aria-hidden="true"></i></a></li>
+                                <ul class="nav collapse collMenu" id="coeMenu" role="menu" aria-labelledby="btn-1">
+                                    <li><a href="#">Chemical Engineering</a></li>
+                                    <li><a href="#">Civil Engineering</a></li>
+                                    <li><a href="#">Electronics and Communications Engineering</a></li>
+                                    <li><a href="#">Industrial Engineering</a></li>
+                                    <li><a href="#">Manufacturing Engineering and Management</a></li>
+                                    <li><a href="#">Mechanical Engineering</a></li>   
+                                </ul>
+                            <li><a href="#" style="padding-right:80px;">Law</a></li>
+                            <li><a href="#" data-toggle="collapse" data-target="#claMenu" aria-expanded="false">Liberal Arts<i class="fa fa-sort-desc" style="margin-left: 65px; color: gray;" aria-hidden="true"></i></a></li> 
+                                <ul class="nav collapse collMenu" id="claMenu" role="menu" aria-labelledby="btn-1">
+                                    <li><a href="#">Behavioral Sciences</a></li>
+                                    <li><a href="#">Communication</a></li>
+                                    <li><a href="#">Literature</a></li>
+                                    <li><a href="#">Filipino</a></li>
+                                    <li><a href="#">History</a></li>
+                                    <li><a href="#">International Studies</a></li>
+                                    <li><a href="#">Philosophy</a></li>
+                                    <li><a href="#">Political Science</a></li>
+                                    <li><a href="#">Psychology</a></li>
+                                    <li><a href="#">Theology and Religious Education</a></li>
+                                </ul>
+                            <li><a href="#" data-toggle="collapse" data-target="#cosMenu" aria-expanded="false">Science<i class="fa fa-sort-desc" style="margin-left: 85px; color: gray;" aria-hidden="true"></i></a></li>
+                                <ul class="nav collapse collMenu" id="cosMenu" role="menu" aria-labelledby="btn-1">
+                                    <li><a href="#">Biology</a></li>
+                                    <li><a href="#">Chemistry</a></li>
+                                    <li><a href="#">Mathematics</a></li>
+                                    <li><a href="#">Physics</a></li>
+                                </ul>
+                            <li><a href="#">Economics</a></li>
+                              </div>
+                          </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10 section">
+                <!--------------BODY SECTION-------------------->
+                <div class="bodySect">
+                     <div class="row collabSubj" style="padding-bottom:20px; text-align: center">
+                         <span style="float:left"> 
+                         <a href="#collabModal" data-toggle="modal" id="collabBtn" >Collaborate</a>
+                         </span>
+                         <span class="deptClass">
+                         Computer Technology Department
+                         </span>
+
+                    </div>
+                <!----------------CLASS THREAD -------------->
+                     <div class="row thread subj">
+                        <div class="col-md-12">
+                            <div class="subjClass">
+                                <span class="subjA">
+                                <a href="#"> DIGITAL&nbsp;<small>(Digital Electronics)</small></a>
+                                </span>
+                                <a href class="followBtn">Following</a>
+                                
+                            </div>
+                            <div class="desc"> Lorem Ipsum has been the industry's standard dummy text
+                                ever since the 1500s, when an unknown printer took a galley of type 
+                                and scrambled it to make a type specimen book.
+                            </div>
+                            <div>
+                                <span class="link-span">
+                                20 posts</span>
+                                <span class="link-span">|</span>
+                                <span class="link-span">50 Followers</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!------------PAGINATION---------------->
+                    <div class="row">
+                      <nav aria-label="...">
+                          <ul class="pagination">
+                            <li class="page-item disabled">
+                              <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item active">
+                              <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                              <a class="page-link" href="#">Next</a>
+                            </li>
+                          </ul>
+                        </nav>
+                     </div>       
+                </div>
+             </div>
+        </div>
+    </div>
+    
+    <!---------------------COLLABORATE MODAL---------------->
+    <div class="modal fade" id="collabModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>Collaborate</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="post">
+                        <div class="titleDiv">
+                        <input placeholder="Title"type="text" size="60" class="collabTitle" name="collabTitle">
+                        </div>
+                        <div class="descDiv">
+                        <textarea rows="4" cols="60" wrap="hard" name="collabDesc" class="collabDesc" maxlength="300" placeholder="Add Description"></textarea>
+                        </div>
+                        <div class="charDiv">
+                        <span id="numChar"></span>/300
+                        </div>
+                        <div class="selectDiv">
+                        <select class="collabSelect" name="collabSelect">
+                            <option selected>Select Subject</option>
+                            <option value="">WEB-PRG</option>
+                            <option>MICPRO2</option>
+                            <option>COMPARC</option>
+                            <option>BASCDSP</option>
+                            <option>PICCTRL</option>
+                            <option>LBYMIC2</option>
+                        </select>
+                        </div>
+                        <div class="subDiv">
+                        <button name="collabSub" class="collabSub">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!---------------------EDIT PROFILE-------------------->
+     <div class="modal fade" id="editProfile" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>Edit Profile</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="post" class="editProfileModal">
+                        <div>
+                            <label>Name:</label>
+                            <span class="fnameEdit"> FirstName </span>
+                            <span class="lnameEdit"> LastName </span>
+                        </div>
+                        <div>
+                            <label>Email Address:</label>
+                            <span class="emailEdit"> first_last@dlsu.edu.ph</span>
+                        </div>
+                        <div>
+                            <label>Password:</label>
+                            <span>(<a href="#" id="changePW">Change Password</a>)</span>
+                        </div>
+                            <div id="showChangePW">
+                                <small style="padding-left: 20px; color: grey;">Input your New Password</small>
+                                <div>
+                                <input type="password" placeholder="New Password"><br>
+                                </div>
+                                <div>
+                                <input type="passowrd" placeholder="Repeat Password">
+                                </div>
+                            </div>
+                        <div>
+                            <label>ID Number:</label>
+                            <span class="idNumEdit">11412345</span>
+                        </div>    
+                            <div><label>College & Degree</label>
+                                <span>(<a href="#" id="changePW">Change College & Degree</a>)</span>
+                        </div>
+                        
+                            <div id="showChangeCD">
+                                <small style="color: grey;">Select your New College and Degree</small>
+                                <br>
+                               <span>
+                                  <select id="college" name="college">
+                                    <option selected>College</option>
+                                    <option value="COB">COB</option>   
+                                    <option value="CCS">COS</option>
+                                    <option value="CED">CED</option>
+                                    <option value="COE">GCOE</option>
+                                    <option value="COL">COL</option>
+                                    <option value="CLA">CLA</option>
+                                    <option value="COS">COS</option>  
+                                    <option value="SOE">SOE</option>
+                                    </select>
+                              </span>
+                              <span>
+                                   <select id="degree" name="degree">
+                                    <option>Degree</option>
+                                    </select>
+                              </span>
+                            </div>
+                        
+                        <div  style="padding-bottom: 30px">
+                            <button name="submitEdit" class="collabSub">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+    
+</html> 

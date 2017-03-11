@@ -9,11 +9,8 @@
     <script src="../jquery/jquery-3.1.1.min.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     <script src="../jquery/navigation.js"></script>
-    <title>Collab - Homepage</title>
+    <title>Collab - MICPRO2</title>
      <link rel="shortcut icon" href="icon.jpg" type="icon">
-    <script type="text/javascript">
-       
-    </script>
 </head>
 
 <body style="background-color: #fffde7">
@@ -44,10 +41,10 @@
         </ul>
       </div>
     </nav>
-    <!-----------------PAGE WRAPPER---------------------->
+    
     <div class="container-fluid">
         <div class="row">
-            <!--------------------NAVIGATION PANE-------------------->
+            <!------------------NAVIGATION PANE-------------------->
             <div class="col-md-2">
                 <div class="sidebar-nav" id="navi1">
                       <div class="navbar navbar-default" id="coursesBar" role="navigation">
@@ -77,20 +74,23 @@
                     </div>
                 </div>
             </div>
-            <!---------------------BODY SECTION------------------------->
             <div class="col-md-10 section">
+                <!----------------BODY SECTION------------------->
                 <div class="bodySect">
-                     <div class="row collaborate">
+                     <div class="row collabSubj">
+                        <div class="subject">WEB-PRG</div>
+                         <div style="padding-top: 20px;">
                         <span> 
                          <a href="#collabModal" data-toggle="modal" id="collabBtn">Collaborate</a>
                          </span>
-                         <span style="">
+                         <span>
                              <form action="#" method="GET" id="filterForm">
-                            <input type="text" id="filter" placeholder="Filter...">
+                                 <input type="text" id="filter" placeholder="Filter...">
                              </form>
                          </span>
+                         </div>
                     </div>
-                <!-------------------THREAD LIST---------------------->
+                <!----------------THREAD LIST-------------------->
                      <div class="row thread">
                         <div class="col-md-3 byLine">
                             <img src="/round.png" width="50" >
@@ -98,7 +98,6 @@
                             <div class="datePosted">Jan-23-2017 12:00PM</div>
                         </div>
                         <div class="col-md-9">
-                            <span class="className"> <a href="#" class="subjLink"> WEB-PRG</a></span>
                             <span><a href class="followBtn">Following</a></span>
                             <div class="title"><a href="#" class="titleThread"> The quick brown fox jumps over the lazy dog</a></div>
                             <div class="desc"> Lorem Ipsum has been the industry's standard dummy text
@@ -107,14 +106,14 @@
                             </div>
                             <div>
                                 <span class="link-span">
-                                <a href="#" class="commentLink">Comments <span="commentNumber">(24)</span></a>
+                                <a href="#" class="commentLink">Comments <span class="commentNumber">(24)</span></a>
                                 </span>
                                 <span class="link-span">|</span>
                                 <span class="link-span">144 Views</span>
                             </div>
                         </div>
                     </div>
-                <!---------------------PAGINATION-------------------->
+                <!-------------PAGINATION--------------------->
                     <div class="row">
                       <nav aria-label="...">
                           <ul class="pagination">
@@ -136,8 +135,8 @@
              </div>
         </div>
     </div>
-    <!----------------COLLABORATE MODAL--------------------->
-     <div class="modal fade" id="collabModal" role="dialog">
+    <!---------------------COLLABORATE MODAL-------------->
+    <div class="modal fade" id="collabModal" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -175,4 +174,5 @@
         </div>
     </div>
 </body>
+    
 </html>
