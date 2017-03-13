@@ -9,6 +9,7 @@
     <script src="../jquery/jquery-3.1.1.min.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     <script src="../jquery/navigation.js"></script>
+    <script src="/jquery/jquery.validate.js"></script>
     <title>Collab - Homepage</title>
      <link rel="shortcut icon" href="icon.jpg" type="icon">
     <script type="text/javascript">
@@ -147,10 +148,10 @@
                 <div class="modal-body">
                     <form action="#" method="post">
                         <div class="titleDiv">
-                        <input placeholder="Title"type="text" size="60" class="collabTitle" name="collabTitle">
+                        <input placeholder="Title"type="text" size="60" class="collabTitle" name="collabTitle" required>
                         </div>
                         <div class="descDiv">
-                        <textarea rows="4" cols="60" wrap="hard" name="collabDesc" class="collabDesc" maxlength="300" placeholder="Add Description"></textarea>
+                        <textarea rows="4" cols="60" wrap="hard" name="collabDesc" class="collabDesc" maxlength="300" placeholder="Add Description" required></textarea>
                         </div>
                         <div class="charDiv">
                         <span id="numChar">0</span>/300
@@ -263,6 +264,6 @@
         document.getElementById("showChangeCD").style.display= "block";
         $('.change1').hide();
     })
-  
+    $('#postCollab').validate();
     </script>
 </html>

@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="/bootstrap/css/carousel.css">
      <link rel="stylesheet" href="/bootstrap/css/login.css">
     <script src="/jquery/jquery-3.1.1.min.js"></script>
+    <script src="/jquery/jquery.validate.js"></script>
+    <script src="/jquery/validation.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <title>Collab - Login</title>
      <link rel="shortcut icon" href="icon.jpg" type="icon">
@@ -45,64 +47,65 @@
                 </ul>
                 <div class="tab-content ">
                 <div class="tab-pane active" id="login">
-                    <form action ="../homepage.html" method="post"> 
-                        <div class="rowText"> 
-                        <input type="text" id="username" name="username" size="25">
-                        </div>
-                        <div class="rowText">
-                        <input type="password" id="password" name=password size="25">
-                        </div>
-                        <div class="rowBtn">
-                        <input type="submit" id="loginBtn" name="loginBtn" value="Log in">
-                        </div>
+                    <form action ="../homepage.html" method="post" id="loginForm"> 
+                        <fieldset>
+                            <div class="rowText"s> 
+                            <input type="text" id="username" name="username" size="25" required/>
+                            </div>
+                            <div class="rowText">
+                            <input type="password" id="password" name=password size="25">
+                            </div>
+                            <div class="rowBtn">
+                            <input type="submit" id="loginBtn" name="loginBtn" value="Log in">
+                            </div>
+                        </fieldset>
                         
                     </form>
                 </div>
                 
                     <div class="tab-pane" id="register" style="text-align:left">
-                    <form action ="../homepage.html" method="post"> 
-                      <span  class="rowText" id="colFirst">
-                        <input type="text" id="firstName" name="firstName" placeholder="First Name">
-                        </span>
-                      <span  class="rowText" id="colLast">
-                        <input type="text" id="lastName" name="lastName" placeholder="Last Name">
-                        </span>
-                      <div  class="rowText">
-                        <input type="text" id="email" name="email" placeholder="Email Address">
-                      </div>
-                      <div  class="rowText">
-                        <input type="password" id="regPass" name="regPass" placeholder="Password">
-                      </div>
-                      <div  class="rowText">
-                        <input type="password" id="confirmPass" name="confrirmPass" placeholder="Confirm Password">
-                      </div>    
-                      <div  class="rowText">
-                        <input type="text" id="idNumber" name="idNumber" placeholder="ID Number">
-                      </div>
-                      <div class="rowText">
-                        <span class="rowText">
-                          <select id="college" name="college">
-                            <option selected>College</option>
-                            <option value="COB">COB</option>   
-                            <option value="CCS">COS</option>
-                            <option value="CED">CED</option>
-                            <option value="COE">GCOE</option>
-                            <option value="COL">COL</option>
-                            <option value="CLA">CLA</option>
-                            <option value="COS">COS</option>  
-                            <option value="SOE">SOE</option>
-                            </select>
-                          </span>
-                          <span class="rowText">
-                           <select id="degree" name="degree">
-                            <option>Degree</option>
-                            </select>
-                          </span>
-                      </div>
-                      <div class="rowBtn-reg">
-                          <input type="submit" id="regBtn" name="regBtn" value="Register">
-                      </div>
+                    <form action ="../homepage.html" method="post" id="registerForm"> 
+                        <fieldset>
+                            <input type="text" id="firstName" name="firstName" placeholder="First Name">
+                            <input type="text" id="lastName" name="lastName" placeholder="Last Name">
+                          <div  class="rowText">
+                            <input type="text" id="email" name="email" placeholder="Email Address">
+                          </div>
+                          <div  class="rowText">
+                            <input type="password" id="regPass" name="regPass" placeholder="Password">
 
+                          </div>
+                          <div  class="rowText">
+                            <input type="password" id="confirmPass" name="confirmPass" placeholder="Confirm Password">
+                          </div>    
+                          <div  class="rowText">
+                            <input type="text" id="idNumber" name="idNumber" placeholder="ID Number">
+                          </div>
+                          <div class="rowText">
+                            <span class="rowText">
+                              <select id="college" name="college">
+                                <option selected>College</option>
+                                <option value="COB">COB</option>   
+                                <option value="CCS">COS</option>
+                                <option value="CED">CED</option>
+                                <option value="COE">GCOE</option>
+                                <option value="COL">COL</option>
+                                <option value="CLA">CLA</option>
+                                <option value="COS">COS</option>  
+                                <option value="SOE">SOE</option>
+                                </select>
+                              </span>
+                              <span class="rowText">
+                               <select id="degree" name="degree">
+                                <option>Degree</option>
+                                </select>
+                              </span>
+                          </div>
+                          <div class="rowBtn-reg">
+                              <input type="submit" id="regBtn" name="regBtn" value="Register">
+                          </div>
+
+                        </fieldset>
                     </form>
                 </div>
                
@@ -115,6 +118,8 @@
 </div>
     <script type="text/javascript">
     $('.carousel').carousel();  
+    
+    
     </script>
 </body>
 </html>

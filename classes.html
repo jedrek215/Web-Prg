@@ -10,6 +10,7 @@
     <script src="../jquery/jquery-3.1.1.min.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     <script src="../jquery/navigation.js"></script>
+    <script src="/jquery/jquery.validate.js"></script>
     <title>Collab - Classes</title>
      <link rel="shortcut icon" href="icon.jpg" type="icon">
 </head>
@@ -66,7 +67,7 @@
                                     </ul>   
                             <li><a href="#" data-toggle="collapse" data-target="#ccsMenu" aria-expanded="false">Computer Studies <i class="fa fa-sort-desc" style="margin-left: 20px; color: gray;" aria-hidden="true"></i> </a></li>
                                 <ul class="nav collapse collMenu" id="ccsMenu" role="menu" aria-labelledby="btn-1">
-                                        <li><a href="#">Computer Technology</a></li>
+                                        <li><a href="dept1.html">Computer Technology</a></li>
                                         <li><a href="#">Information Technology</a></li>
                                         <li><a href="#">Software Technology</a></li>
                                 </ul>
@@ -123,7 +124,7 @@
                          <a href="#collabModal" data-toggle="modal" id="collabBtn" >Collaborate</a>
                          </span>
                          <span class="deptClass">
-                         Computer Technology Department
+                         Classes Following
                          </span>
 
                     </div>
@@ -182,18 +183,19 @@
                     <h4>Collaborate</h4>
                 </div>
                 <div class="modal-body">
-                    <form action="#" method="post">
+                    <form action="#" method="post" id="postCollab">
+                    <fieldset>
                         <div class="titleDiv">
-                        <input placeholder="Title"type="text" size="60" class="collabTitle" name="collabTitle">
+                        <input placeholder="Title"type="text" size="60" class="collabTitle" name="collabTitle" required>
                         </div>
                         <div class="descDiv">
-                        <textarea rows="4" cols="60" wrap="hard" name="collabDesc" class="collabDesc" maxlength="300" placeholder="Add Description"></textarea>
+                        <textarea rows="4" cols="60" wrap="hard" name="collabDesc" class="collabDesc" maxlength="300" placeholder="Add Description" required></textarea>
                         </div>
                         <div class="charDiv">
                         <span id="numChar">0</span>/300
                         </div>
                         <div class="selectDiv">
-                        <select class="collabSelect" name="collabSelect">
+                        <select class="collabSelect" name="collabSelect" required>
                             <option selected>Select Subject</option>
                             <option value="">WEB-PRG</option>
                             <option>MICPRO2</option>
@@ -206,6 +208,7 @@
                         <div class="subDiv">
                         <button name="collabSub" class="collabSub">Submit</button>
                         </div>
+                    </fieldset>
                     </form>
                 </div>
             </div>
@@ -300,6 +303,6 @@
         document.getElementById("showChangeCD").style.display= "block";
         $('.change1').hide();
     })
-  
+    $('#postCollab').validate();
     </script>
 </html> 
