@@ -2,23 +2,20 @@
 <html>
 <head>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../bootstrap/css/page.css">
+    <link rel="stylesheet" href="../bootstrap/css/notif.css">
     <link rel="stylesheet" href="../bootstrap/css/modal.css">
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
     <link href="/bootstrap/fonts/Luna.woff" rel="stylesheet">
     <script src="../jquery/jquery-3.1.1.min.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     <script src="../jquery/navigation.js"></script>
-    <script src="/jquery/jquery.validate.js"></script>
-    <title>Collab - Homepage</title>
+    <title>Collab - Notifications</title>
      <link rel="shortcut icon" href="icon.jpg" type="icon">
-    <script type="text/javascript">
-       
-    </script>
 </head>
 
 <body style="background-color: #fffde7">
-    <!------------------TOP NAVIGATION-------------------->
+   <!------------------TOP NAVIGATION-------------------->
     <nav class="navbar navbar-default " id="header">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -26,7 +23,7 @@
         </div>
         <ul class="nav navbar-nav" id="menuBar">
           <li><a href="/homepage.html">Home</a></li>
-          <li><a href="/notifications.html">Notifications <span class="badge">3</span></a></li>
+          <li><a href="/notifications.html">Notifications </a></li>
           <li><a href="/classes.html">Classes</a></li>            
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -45,7 +42,7 @@
         </ul>
       </div>
     </nav>
-    <!-----------------PAGE WRAPPER---------------------->
+    
     <div class="container-fluid">
         <div class="row">
             <!--------------------NAVIGATION PANE-------------------->
@@ -78,65 +75,57 @@
                     </div>
                 </div>
             </div>
-            <!---------------------BODY SECTION------------------------->
             <div class="col-md-10 section">
+                <!--------------BODY SECTION-------------------->
                 <div class="bodySect">
-                     <div class="row collaborate">
-                        <span> 
-                         <a href="#collabModal" data-toggle="modal" id="collabBtn">Collaborate</a>
-                         </span>
-                         <span style="">
-                             <form action="#" method="GET" id="filterForm">
-                            <input type="text" id="filter" placeholder="Filter...">
-                             </form>
+                     <div class="row collabSubj" style="padding-bottom:20px; text-align: left; background-color:#FBC02D; border: none">
+                         <span class="deptClass" style="color:white">
+                         Notifications
                          </span>
                     </div>
-                <!-------------------THREAD LIST---------------------->
-                     <div class="row thread">
-                        <div class="col-md-3 byLine">
-                            <img src="/round.png" width="50" >
-                            <div class="name">Name L.</div>
-                            <div class="datePosted">Jan-23-2017 12:00PM</div>
-                        </div>
-                        <div class="col-md-9">
-                            <span class="className"> <a href="#" class="subjLink"> WEB-PRG</a></span>
-                            <span><a href class="followBtn">Following</a></span>
-                            <div class="title"><a href="/comment.html" class="titleThread"> The quick brown fox jumps over the lazy dog</a></div>
-                            <div class="desc"> Lorem Ipsum has been the industry's standard dummy text
-                                ever since the 1500s, when an unknown printer took a galley of type 
-                                and scrambled it to make a type specimen book.
-                            </div>
-                            <div>
-                                <span class="link-span">
-                                <a href="#" class="commentLink">Comments <span class="commentNumber">(24)</span></a>
+                <!----------------NOTIF THREAD -------------->
+                     <div class="notifThread">
+                        <div class="notifHeader">
+                            <!--<div class="notifClass">-->
+                                <span class="notifTitle">
+                                 <!------------------ Clickable to open thread--------------->
+                                <a href="#"> New comment on your thread: CSS 101&nbsp;</a>
                                 </span>
-                                <span class="link-span">|</span>
-                                <span class="link-span">144 Views</span>
+                                
+                            <!--</div>-->
+                                <!------------------ Notification preview description--------------->
+                            <div class="desc"> <i>"Lorem Ipsum has been the industry's standard dummy text
+                                ever since the 1500s, when an unknown printer took a galley of type 
+                                and scrambled it to make a type specimen book."</i>
                             </div>
                         </div>
-                    </div>
-                <!---------------------PAGINATION-------------------->
-                    <div class="row">
-                      <nav aria-label="...">
-                          <ul class="pagination">
-                            <li class="page-item disabled">
-                              <a class="page-link" href="#" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active">
-                              <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                              <a class="page-link" href="#">Next</a>
-                            </li>
-                          </ul>
-                        </nav>
-                     </div>       
+                            <div class="notifHeader">
+                                <span class="notifTitle">
+                                 <!------------------ Clickable to open thread--------------->
+                                <a href="#"> New post on: MICPRO1&nbsp;</a>
+                                </span>
+                                
+                            
+                                <!------------------ Notification preview description--------------->
+                                <div class="desc"> PIC Microcontroller Timing Diagram
+                                </div>
+                            </div>
+                            <div class="notifHeader">
+                                <span class="notifTitle">
+                                 <!------------------ Clickable to open thread--------------->
+                                <a href="#"> New comment on: SCIMATC&nbsp;</a>
+                                </span>
+                                
+                            
+                                <!------------------ Notification preview description--------------->
+                                <div class="desc"> PIC Microcontroller Timing Diagram
+                                </div>
+                         </div>
                 </div>
              </div>
         </div>
     </div>
+    
     <!---------------------COLLABORATE MODAL---------------->
     <div class="modal fade" id="collabModal" role="dialog">
         <div class="modal-dialog">
@@ -148,10 +137,10 @@
                 <div class="modal-body">
                     <form action="#" method="post">
                         <div class="titleDiv">
-                        <input placeholder="Title"type="text" size="60" class="collabTitle" name="collabTitle" required>
+                        <input placeholder="Title"type="text" size="60" class="collabTitle" name="collabTitle">
                         </div>
                         <div class="descDiv">
-                        <textarea rows="4" cols="60" wrap="hard" name="collabDesc" class="collabDesc" maxlength="300" placeholder="Add Description" required></textarea>
+                        <textarea rows="4" cols="60" wrap="hard" name="collabDesc" class="collabDesc" maxlength="300" placeholder="Add Description"></textarea>
                         </div>
                         <div class="charDiv">
                         <span id="numChar">0</span>/300
@@ -176,7 +165,7 @@
         </div>
     </div>
     
-   <!---------------------EDIT PROFILE-------------------->
+    <!---------------------EDIT PROFILE-------------------->
      <div class="modal fade" id="editProfile" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -205,7 +194,7 @@
                                 <input type="password" placeholder="New Password"><br>
                                 </div>
                                 <div>
-                                <input type="passowrd" placeholder="Repeat Password">
+                                <input type="password" placeholder="Repeat Password">
                                 </div>
                             </div>
                         <div>
@@ -223,7 +212,7 @@
                                   <select id="college" name="college">
                                     <option selected>College</option>
                                     <option value="COB">COB</option>   
-                                    <option value="CCS">COS</option>
+                                    <option value="CCS">CCS</option>
                                     <option value="CED">CED</option>
                                     <option value="COE">GCOE</option>
                                     <option value="COL">COL</option>
@@ -264,6 +253,6 @@
         document.getElementById("showChangeCD").style.display= "block";
         $('.change1').hide();
     })
-    $('#postCollab').validate();
+  
     </script>
-</html>
+</html> 

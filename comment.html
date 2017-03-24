@@ -1,0 +1,127 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/page.css">
+    <link rel="stylesheet" href="../bootstrap/css/modal.css">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+    <link href="/bootstrap/fonts/Luna.woff" rel="stylesheet">
+    <script src="../jquery/jquery-3.1.1.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../jquery/navigation.js"></script>
+    <title>The quick brown fox jumps over the lazy dog</title>
+    <link rel="shortcut icon" href="icon.jpg" type="icon">
+    <script type="text/javascript">
+
+    </script>
+    </head>
+
+    <body style="background-color: #fffde7">
+    <!------------------TOP NAVIGATION-------------------->
+    <nav class="navbar navbar-default " id="header">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><span style="font-family:'luna'" id="Collab">Collab</span></a>
+    </div>
+    <ul class="nav navbar-nav" id="menuBar">
+      <li><a href="/homepage.html">Home</a></li>
+      <li><a href="#">Notifications <span class="badge">3</span></a></li>
+      <li><a href="/classes.html">Classes</a></li>            
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><form action="" method="GET">
+        <input type="text" id="search" placeholder="Search...">
+        </form>
+        </li>
+        <li><a href="#" id="searchBtn"><span class="glyphicon glyphicon-search"></span></a></li>
+      <li class="dropdown" id="user"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <img src="userIcon.jpg" width="35" ></a>
+          <ul class="dropdown-menu" id="dropdownMenu">
+            <li> <a href="#editProfile" data-toggle="modal">Edit Profile</a></li>
+            <li><a href="index.html">Logout</a></li>
+          </ul>
+      </li>
+    </ul>
+    </div>
+    </nav>
+
+    <!-----------------PAGE WRAPPER---------------------->
+    <div class="container-fluid">
+    <div class="commentRow">
+
+    <!---------------------BODY SECTION------------------------->
+        <div class="col-md-10 section">
+            <div class="bodyCommentThreadSect">
+
+    <!-------------------THREAD LIST---------------------->
+                 <div class="comment thread">
+                    <div class="col-md-3 byLine">
+                        <img src="/round.png" width="50" >
+                        <div class="name">Name L.</div>
+                        <div class="datePosted">Jan-23-2017 12:00PM</div>
+                    </div>
+                    <div class="col-md-9" style="margin-left: -20px;">
+                        <span class="className"> <a href="#" class="subjLink"> WEB-PRG</a></span>
+                        <span><a href class="followBtn" >Following</a></span>
+                        <div class="title">The quick brown fox jumps over the lazy dog</div>
+                        <div class="desc"> Lorem Ipsum has been the industry's standard dummy text
+                            ever since the 1500s, when an unknown printer took a galley of type 
+                            and scrambled it to make a type specimen book.
+                        </div>
+                        <div>
+                            <span class="link-span">
+                            Comments <span id="commentNumber">(24)</span>
+                            </span>
+                            <span class="link-span">|</span>
+                            <span class="link-span">144 Views</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <!------------------------Comments------------------->      
+            <div class ="bodyCommentSection">
+                <div class="commentBar">
+                    <span class ="commentStyle">Comments</span>
+                    <span class="dropdown_sort">
+                        <button onclick="myFunction()" class="dropbtn">Sort by</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="#">Top</a>
+                            <a href="#">Latest</a>
+                            <a href="#">Oldest</a>
+                        </div>
+                    </span>
+                </div>
+                
+                <div class="row-comment">
+                    <div class="col-md-3 byLine">
+                        <img src="/round.png" width="50" >
+                        <div class="name">Name L.</div>
+                        <div class="datePosted">Jan-23-2017 12:00PM</div>
+                    </div>
+                    <div class ="comment"> Lorem Ipsum has been the industry's standard dummy text
+                        ever since the 1500s, when an unknown printer took a galley of type 
+                        and scrambled it to make a type specimen book.
+                    </div>
+                </div>
+            
+                <div class="row-comment">
+                    <div class="col-md-3 byLine">
+                        <img src="/round.png" width="50" >
+                        <div class="name">Name L.</div>
+                        <div class="datePosted">Jan-23-2017 1:00AM</div>
+                    </div>
+                <div class ="comment"> Roses are red, violets are blue.</div>
+                </div>
+    <!---------------------PAGINATION-------------------->
+            
+                <div class= "commentSection">
+                    <div class ="commentStyle">Post a Comment</div>
+                    <textarea class = "commentbox" name="commentmessage" rows="5" cols="130"></textarea>
+                    <button class = "commentbtn">Comment</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </body>
+    </html>
