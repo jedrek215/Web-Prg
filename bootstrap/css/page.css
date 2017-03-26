@@ -1,0 +1,670 @@
+body {
+    background-color: #fffde7;
+    font-family: 'Oxygen', sans-serif;
+}
+
+#header{
+    background-color: #f9a825;
+    padding-top: 10px;
+    padding-right: 150px;
+    padding-left: 75px;
+    box-shadow: 0px 1px 8px #888;
+    border: none;
+}
+
+
+#Collab{
+    color: white;
+    font-size: 22px;
+    padding: 10px 95px 5px 30px;
+}
+
+.nav>li>a>img{
+    padding: 0px 0px 0px 0px;
+    border-radius: 20px;
+    display: inline;
+}
+
+#user a{
+    padding: 0px 10px 10px 0px;
+    margin-left: 10px;
+    margin-top: -3spx;
+}
+
+#searchBtn{
+    background-color: transparent;
+    font-size: 18px;
+    padding-right: 15px;
+    margin-left: -10px;
+    border-bottom: 1px solid white;
+    margin-top: -6px;
+    border-radius: 0px;
+    padding-bottom: 2px;
+}
+
+#header .navbar-nav>li>a#searchBtn:focus, 
+#header .navbar-nav>li>a#searchBtn:hover{
+    border-radius: 0px;
+}
+
+li{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.nav .open>a, 
+.nav .open>a:focus, 
+.nav .open>a:hover{
+    background-color:transparent;
+}
+.navbar-default .navbar-nav>.open>a, 
+.navbar-default .navbar-nav>.open>a:focus, 
+.navbar-default .navbar-nav>.open>a:hover{
+    background-color:transparent;
+}
+
+.navbar-nav>li>a {
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: white;    
+}
+
+.navbar-right{
+    margin-right: 60px;
+}
+.dropdown-menu>li{
+    padding-left: 0px;
+    
+}
+
+#dropdownMenu a{
+  padding-left: 10px;
+    padding-right: 20px;
+    padding-top: 2px;
+    margin-left:2px;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus{
+    background-color: #fffde7;
+
+}
+
+.badge{
+    background-color: #ff3d00;
+    color: white;
+}
+#header .navbar-nav>.active>a, 
+#header .navbar-nav>.active>a:focus, 
+#header .navbar-nav>.active>a:hover{
+    border-radius: 6px;
+    color: #684d0a;
+    background-color: #fff59d;
+}
+
+#header .navbar-nav>li>a:focus, #header .navbar-nav>li>a:hover{
+    background-color: transparent;
+    color: white;
+    border-radius: 6px;
+}
+
+#header .navbar-nav>#user>a:focus, #header .navbar-nav>#user>a:hover{
+    background-color: transparent;
+    color: #F57F17;
+    border-radius: 6px;
+}
+.navbar-right{
+    padding-top:5px;
+    padding-right: 20px;
+}
+
+#search{
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid white;
+    color: white;
+    padding-top: 5px;
+}
+
+#search::-webkit-input-placeholder {
+    color:white
+}
+#search:focus{
+    outline:none;
+}
+
+#followBar, #coursesBar{
+    background-color: white;
+    width:150px;
+    border-radius: 0px;
+    box-shadow: 0px 1px 8px #888;
+    padding-top:5px;
+    padding-left:0px;
+    padding-bottom:5px;
+}
+
+#deptBar{
+    background-color: white;
+
+    width:200px;
+    max-height: 500px;
+    min-height: 320px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 0px;
+    box-shadow: 0px 1px 8px #888;
+    padding-top:5px;
+    padding-left:0px;
+    padding-bottom:5px;
+}
+
+#deptBar a{
+    color: black;
+    padding-left:5px;
+    padding-right: 10px;
+    padding-top:10px;
+    padding-bottom:10px;
+    float:left;
+}
+
+#deptBar a:hover, #deptBar a:focus{
+    background-color: #FFEE58;
+    text-decoration: none;
+    color: black;
+}
+
+
+#deptBar::-webkit-scrollbar {
+    width: 0px;
+}
+
+
+#followBar a, #coursesBar a {
+    color: black;
+    padding-left:5px;
+    padding-top:10px;
+    padding-bottom:10px;
+    float:left;
+}
+
+#coursesBar a{
+    color: black;
+    padding-left:5px;
+    padding-top:5px;
+    padding-bottom:5px;
+    text-align:center;
+}
+
+#followBar li, #coursesBar li{
+    padding-top:1px;
+}
+#followBar .navbar-nav>.active>a, 
+#followBar .navbar-nav>.active>a:focus, 
+#followBar .navbar-nav>.active>a:hover,
+#coursesBar .navbar-nav>.active>a, 
+#coursesBar .navbar-nav>.active>a:focus, 
+#coursesBar .navbar-nav>.active>a:hover{
+    width:140px;
+    border-radius:0px;
+    float:left;
+    
+}
+
+#coursesBar .navbar-nav>.active>a, 
+#coursesBar .navbar-nav>.active>a:focus, 
+#coursesBar .navbar-nav>.active>a:hover{
+    width:140px;
+    border-radius:0px;
+    float:left;
+    padding-right: 70px;
+}
+
+#followBar .navbar-collapse.collapse, #coursesBar .navbar-collapse.collapse{
+    padding-left:0px;
+}
+
+#navi{
+    padding-left:95px;
+    padding-top: 4px;
+    position:fixed;
+}
+
+
+#navi1{
+    padding-left:95px;
+    padding-top: 160px;
+    position:fixed;
+}
+
+#navi2{
+    padding-left:60px;
+    padding-top: 4px;
+    position:fixed;
+}
+
+.col-md-10.section{
+    padding-left:80px;
+}
+.bodySect{
+    padding-left: 20px;
+    padding-right: 10px;
+    background-color: white;
+    box-shadow: 0px 1px 8px #888;
+    width:800px;
+    border-radius: 6px 6px 0px 0px;
+}
+
+.pagination{
+    padding-left: 250px;
+    color: f57f17;
+}
+
+.pagination>li>a{
+    color: #f57f17;
+}
+.pagination>.active>a, 
+.pagination>.active>a:focus, 
+.pagination>.active>a:hover, 
+.pagination>.active>span, 
+.pagination>.active>span:focus, 
+.pagination>.active>span:hover{
+    background-color:#f57f17;
+    border: 1px solid #f57f17;
+    color: white;
+}
+
+
+.pagination>li>a:focus, 
+.pagination>li>a:hover,
+.pagination>li>span:focus, 
+.pagination>li>span:hover{
+    background-color: #ffbd51;
+    color: #9d4a00;
+}
+#collabBtn{
+    font-size:15px;
+    background-color: #f57f17;
+    color: white;
+    padding: 5px 10px 7px 10px;
+    border-radius: 6px;
+}
+
+#collabBtn:hover, #collabBtn:focus{
+    background-color: #ffec96;
+    color: #f57f17;
+    border: none;
+    text-decoration: none;
+}
+
+#filter{
+    border: none;
+    border-bottom: 1px solid #f57f17;
+    color: #f57f17;
+    float:right;
+    background-color: transparent;
+}
+
+#filterForm{
+    margin-bottom: -20px;
+}
+#filter::-webkit-input-placeholder {
+    color: #f57f17;
+}
+
+#filter:focus{
+    outline:none;
+}
+
+.row.collaborate{
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.row.collabSubj{
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: -20px;
+    margin-right: -10px;
+    background-color: white;
+    border-radius: 6px 6px 0px 0px;
+    border: 1px solid #fdd835;
+    
+}
+
+.col-md-3.byLine{
+    padding-top: 20px;
+    text-align:center;
+}
+
+.row.thread{
+    padding-top: 10px;
+    margin-left: -20px;
+    margin-right: -10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    border: 1px solid #fdd835;   
+}
+
+
+.row{
+    margin-right: 20px;
+}
+
+.name{
+    color: #2c2c2c;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.datePosted{
+    color: #999595;
+    font-size: 10px;
+}
+
+.className, .subjLink{
+    color: #f57f17;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.subjLink:hover{
+    color: #fdb16d;
+}
+
+.followBtn{
+    float: right;
+    font-size: 14px;
+    background-color: #f9a825;
+    padding: 8px 15px 8px 15px;
+    color: white;
+    border-radius: 6px;
+    margin-right: -10px;
+}
+
+.followBtn a{
+    color: white
+}
+.title, .title .titleThread{
+    padding: 10px 0px 2px 0;
+    font-weight: bold;
+    font-size: 15px;
+    color:black;
+}
+
+.titleThread:hover{
+    color:gray;
+}
+
+.desc{
+    color: #7a7a7a;
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.link-span{
+    padding-right: 5px;
+    font-size: 12px;
+    color: #656565;
+}
+
+.subject{
+    border-bottom: 4px solid #fdd835;
+    background-color: #fffde7;
+    border-radius: 6px 6px 0px 0px;
+    margin-left: -20px;
+    margin-right: -21px;
+    margin-top: -20px;
+    padding: 10px 0px 10px 25px;
+    color: #f57f17;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+textarea{
+    resize: none;
+}
+
+.nav.collapse.collMenu{
+    padding-left: 20px;
+}
+
+.nav.collapse.collMenu.in a{
+   font-size: 12px;
+}
+
+#cobMenu a:hover, #cobMenu a:focus,
+#ccsMenu a:hover, #ccsMenu a:focus,
+#coeMenu a:hover, #coeMenu a:focus,
+#claMenu a:hover, #claMenu a:focus,
+#cosMenu a:hover, #cosMenu a:focus,
+#cedMenu a:hover, #cedMenu a:focus{
+    color: #684d0a;
+    background-color: #fff59d;
+}
+
+#claMenu a, #cosMenu a{
+    padding-right: 30px;
+}
+#collDept{
+    background-color: white;
+    padding: 20px 10px 10px 25px;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    color: #f57f17; 
+    font-size:14px; 
+    font-weight: bolder;
+    position: fixed;
+    z-index: 1;
+}
+
+#colleges{
+    padding-top: 45px;
+}
+
+.deptClass{
+    font-weight: bold;
+    padding: 0px 0px 5px 0px;
+    margin-left: -10px;
+    margin-bottom: -10px;
+    color: #f57f17;
+    font-size: 20px;
+}
+
+.subjClass{
+    border-bottom: 2px solid black;
+    margin-bottom: 10px;
+    font-size: 24px;
+    
+}
+.subjA a{
+    color: black;
+}
+
+.subjA a>small{
+    color: gray;
+    font-size: 14px;
+}
+.subjA a:hover, .subjA a:focus, .subjA a>small:hover, .subjA a>small:focus{
+    color: orange;
+    text-decoration: none
+}
+
+.row.thread.subj{
+    padding: 10px 20px 20px 20px;
+    border: 1px solid #fdd835;   
+}
+
+.follow{
+    background-color: white;
+    border: 2px solid #f57f17;
+    color: #f57f17;
+    padding-bottom: 3px;
+    font-size: 14px;
+}
+
+.follow:hover{
+    background: #f57f17;
+    text-decoration: none;
+    color: white;
+}
+
+
+.bodyCommentThreadSect{
+    background-color: white;
+    box-shadow: 0px 1px 8px #888;
+    padding-bottom: 180px;
+    width:980px;
+    margin-right: 200px;
+    border-radius: 6px 6px 0 0;
+}
+
+.bodyCommentSection{
+    margin: 20px 0 40px 0;
+    border-radius: 0 0 6px 6px;
+    background-color: white;
+    width: 980px;
+    box-shadow: 0px 1px 8px #888;
+    padding: 20px 20px 20px 20px;
+}
+
+.commentRow{
+    margin-left: 25px;
+    margin-right: 30px;
+}
+
+.commentBar{
+    border-bottom: 2px solid black;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+.commentStyle{
+    margin-top: 25px;
+    padding-left: 10px;
+    padding-right: 100px;
+    padding-bottom: 5px;
+    color: #f57f17;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.row-comment{
+    padding-bottom: 50px;
+    border-bottom: 1px solid #fdd835;
+}
+
+.comment{
+    padding-top: 35px;
+    padding-left: 15px;
+    font-family: "Arial"
+    font-size: 24px;
+}
+
+.pageRow{
+    padding-top: 10px;
+    padding-left: 280px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #fdd835;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    font-size:15px;
+    background-color: #f57f17;
+    color: white;
+    padding: 5px 10px 7px 10px;
+    width: 100px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn_sort:hover, .dropbtn_sort:focus {
+    background-color: #ffec96;
+    color: #f57f17;
+}
+
+.dropdown_sort:hover .dropdown-content {
+    display: block;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown_sort{
+    position: relative;
+    margin-top: 0px;
+    float: right;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown_sort:hover .dropbtn {
+    background-color: #ffec96;
+    color: #f57f17;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+.bodyCommentBox{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0px 1px 8px #888;
+    width:1220px;
+    height: 200px;
+}
+
+.commentbtn{
+    margin-top: 5px;
+    float: right;
+    font-size:15px;
+    background-color: #f57f17;
+    color: white;
+    padding: 5px 10px 7px 10px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.commentbtn:hover, .commentbtn:focus {
+    background-color: #ffec96;
+    color: #f57f17;
+    float: right;
+}
+
+.commentSection{
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.nameHere{
+    padding-top: 10px;
+    margin-bottom: -10px;
+}
