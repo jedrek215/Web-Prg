@@ -51,7 +51,7 @@ input[type=text], input[type=password], select{
 }
 
 input#username{
-   background-image:url(/user.png);
+   background-image:url(http://localhost/collab/user.png);
     background-repeat:no-repeat;
     background-position:6px;
     background-size: auto;
@@ -59,7 +59,7 @@ input#username{
 }
 
 input#password{
-   background-image:url(/pass.png);
+   background-image:url(http://localhost/collab/pass.png);
     background-repeat:no-repeat;
     background-position:6px;
     background-size: auto;
