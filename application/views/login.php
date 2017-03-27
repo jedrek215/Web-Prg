@@ -47,13 +47,15 @@
                 </ul>
                 <div class="tab-content ">
                 <div class="tab-pane active" id="login">
-                    <form action ="../homepage.html" method="post" id="loginForm"> 
+                     <?php echo validation_errors();
+                        $attributes = array('id' => 'loginForm');
+                        echo form_open('verify_login', $attributes); ?>
                         <fieldset>
                             <div class="rowText"s> 
                             <input type="text" id="username" name="username" size="25" required/>
                             </div>
                             <div class="rowText">
-                            <input type="password" id="password" name=password size="25">
+                            <input type="password" id="password" name="password" size="25" required/>
                             </div>
                             <div class="rowBtn">
                             <input type="submit" id="loginBtn" name="loginBtn" value="Log in">
@@ -64,7 +66,9 @@
                 </div>
                 
                     <div class="tab-pane" id="register" style="text-align:left">
-                    <form action ="../homepage.html" method="post" id="registerForm"> 
+                    <?php echo validation_errors();
+                        $attributes = array('id' => 'registerForm');
+                        echo form_open('Register', $attributes); ?>
                         <fieldset>
                             <input type="text" id="firstName" name="firstName" placeholder="First Name">
                             <input type="text" id="lastName" name="lastName" placeholder="Last Name">
@@ -98,6 +102,9 @@
                               <span class="rowText">
                                <select id="degree" name="degree">
                                 <option>Degree</option>
+                                <option value ="CS-CSE">CS-CSE</option>
+                                <option value ="CS-ST">CS-ST</option>
+                                <option value ="CS-NE">CS-NE</option>
                                 </select>
                               </span>
                           </div>

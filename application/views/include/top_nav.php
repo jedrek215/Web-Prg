@@ -4,7 +4,7 @@
     <nav class="navbar navbar-default " id="header">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#"><span style="font-family:'luna'" id="Collab">Collab</span></a>
+          <a class="navbar-brand" href="<?php echo base_url('/Home_Cont')?>"><span style="font-family:'luna'" id="Collab">Collab</span></a>
         </div>
         <ul class="nav navbar-nav" id="menuBar">
           <li><a href="<?php echo base_url('/Home_Cont')?>">Home</a></li>
@@ -23,9 +23,9 @@
                 <li class="nameHere"><center>Name Here</center></li>
                 <hr>
                 <li> <a href="#editProfile" data-toggle="modal">Edit Profile</a></li>
-                <li><a href="index.html">Logout</a></li>
+                <li><a href="<?php echo base_url('/Login_Cont')?>">Logout</a></li>
               </ul>
-          </li>
+          </li> 
         </ul>
       </div>
     </nav>
