@@ -12,24 +12,18 @@
             <div class="bodyCommentThreadSect">
 
     <!-------------------THREAD LIST---------------------->
+				<?php foreach($thread_details as $object): ?>
                  <div class="comment thread">
                     <div class="col-md-3 byLine">
-                        <img src="/round.png" width="50" >
-                        <div class="name">Name L.</div>
-                        <div class="datePosted">Jan-23-2017 12:00PM</div>
-                    </div>
+						<img src="/round.png" width="50" >
+						<div class="name"><?=$object->email?></div>
+						<div class="datePosted"><?=$object->thread_datesub?></div>
+					</div>
                     <div class="col-md-9" style="margin-left: -20px;">
-                        <span class="className"> <a href="#" class="subjLink"> WEB-PRG</a></span>
+                        <span class="className"> <a href="#" class="subjLink"><?=$object->class_code?></a></span>
                         <span><a href class="followBtn" >Following</a></span>
-                        <div class="title">The quick brown fox jumps over the lazy dog</div>
-                        <div class="desc"> Lorem Ipsum has been the industry's standard dummy text
-                            ever since the 1500s, when an unknown printer took a galley of type 
-                            and scrambled it to make a type specimen book.Lorem Ipsum has been the industry's standard dummy text
-                            ever since the 1500s, when an unknown printer took a galley of type 
-                            and scrambled it to make a type specimen book.Lorem Ipsum has been the industry's standard dummy text
-                            ever since the 1500s, when an unknown printer took a galley of type 
-                            and scrambled it to make a type specimen book.
-                        </div>
+                        <div class="title"><?=$object->thread_title?></div>
+                        <div class="desc"><?=$object->thread_desc?></div>
                         <div>
                             <span class="link-span">
                             Comments <span id="commentNumber">(24)</span>
@@ -39,6 +33,7 @@
                         </div>
                     </div>
                 </div>
+				<?php endforeach; ?>
             </div>
  
             <div class ="bodyCommentSection">
@@ -53,99 +48,27 @@
                         </div>
                     </span>
                 </div>
-                
+				
+                <?php foreach($comments as $object): ?>
                 <div class="row-comment">
                     <div class="col-md-3 byLine">
                         <img src="/round.png" width="50" >
-                        <div class="name">Name L.</div>
-                        <div class="datePosted">Jan-23-2017 12:00PM</div>
+                        <div class="name"><?=$object->email?></div>
+                        <div class="datePosted"><?=$object->comment_datesub?></div>
                     </div>
-                    <div class ="comment"> Lorem Ipsum has been the industry's standard dummy text
-                        ever since the 1500s, when an unknown printer took a galley of type 
-                        and scrambled it to make a type specimen book.
-                    </div>
+                    <div class ="comment"><?=$object->comment_desc?></div>
                 </div>
-                <div class="row-comment">
-                    <div class="col-md-3 byLine">
-                        <img src="/round.png" width="50" >
-                        <div class="name">Name L.</div>
-                        <div class="datePosted">Jan-23-2017 12:00PM</div>
-                    </div>
-                    <div class ="comment"> Lorem Ipsum has been the industry's standard dummy text
-                        ever since the 1500s, when an unknown printer took a galley of type 
-                        and scrambled it to make a type specimen book.
-                    </div>
-                </div>
-                <div class="row-comment">
-                    <div class="col-md-3 byLine">
-                        <img src="/round.png" width="50" >
-                        <div class="name">Name L.</div>
-                        <div class="datePosted">Jan-23-2017 12:00PM</div>
-                    </div>
-                    <div class ="comment"> Lorem Ipsum has been the industry's standard dummy text
-                        ever since the 1500s, when an unknown printer took a galley of type 
-                        and scrambled it to make a type specimen book.
-                    </div>
-                </div>
-                <div class="row-comment">
-                    <div class="col-md-3 byLine">
-                        <img src="/round.png" width="50" >
-                        <div class="name">Name L.</div>
-                        <div class="datePosted">Jan-23-2017 1:00AM</div>
-                    </div>
-                <div class ="comment"> Roses are red, violets are blue.</div>
-                </div>
-                    
-                <div class="row-comment">
-                    <div class="col-md-3 byLine">
-                        <img src="/round.png" width="50" >
-                        <div class="name">Name L.</div>
-                        <div class="datePosted">Jan-23-2017 12:00PM</div>
-                    </div>
-                    <div class ="comment"> Lorem Ipsum has been the industry's standard dummy text
-                        ever since the 1500s, when an unknown printer took a galley of type 
-                        and scrambled it to make a type specimen book.
-                    </div>
-                </div>
-                <div class="row-comment">
-                    <div class="col-md-3 byLine">
-                        <img src="/round.png" width="50" >
-                        <div class="name">Name L.</div>
-                        <div class="datePosted">Jan-23-2017 12:00PM</div>
-                    </div>
-                    <div class ="comment"> Lorem Ipsum has been the industry's standard dummy text
-                        ever since the 1500s, when an unknown printer took a galley of type 
-                        and scrambled it to make a type specimen book.Lorem Ipsum has been the industry's standard dummy text
-                        ever since the 1500s, when an unknown printer took a galley of type 
-                        and scrambled it to make a type specimen book.
-                    </div>
-                </div>
-                <div class="row-comment">
-                    <div class="col-md-3 byLine">
-                        <img src="/round.png" width="50" >
-                        <div class="name">Name L.</div>
-                        <div class="datePosted">Jan-23-2017 12:00PM</div>
-                    </div>
-                    <div class ="comment"> Lorem Ipsum has been the industry's standard dummy text
-                        ever since the 1500s, when an unknown printer took a galley of type 
-                        and scrambled it to make a type specimen book.
-                    </div>
-                </div>
-                <div class="row-comment">
-                    <div class="col-md-3 byLine">
-                        <img src="/round.png" width="50" >
-                        <div class="name">Name L.</div>
-                        <div class="datePosted">Jan-23-2017 1:00AM</div>
-                    </div>
-                <div class ="comment"> Roses are red, violets are blue.</div>
-                </div>
+				<?php endforeach; ?>
     <!---------------------PAGINATION-------------------->
-            
+				<?=validation_errors();?>
+				<?=form_open('Thread_Cont/add_comment');?>
+				<?=form_hidden('thread_id', $this->uri->segment(3));?>
                 <div class= "commentSection">
                     <div class ="commentStyle">Post a Comment</div>
                     <textarea class = "commentbox" name="commentmessage" rows="5" cols="130"></textarea>
-                    <button class = "commentbtn">Comment</button>
+                    <button type="submit" class = "commentbtn">Comment</button>
                 </div>
+				<?=form_close();?>
             </div>
         </div>
         </div>

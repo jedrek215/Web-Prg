@@ -13,34 +13,35 @@
                          </span>
                          <span style="">
                              <form action="#" method="GET" id="filterForm">
-                            <input type="text" id="filter" placeholder="Filter...">
+								<input type="text" id="filter" placeholder="Filter...">
                              </form>
                          </span>
                     </div>
                 <!-------------------THREAD LIST---------------------->
-                     <div class="row thread">
-                        <div class="col-md-3 byLine">
-                            <img src="/round.png" width="50" >
-                            <div class="name">Name L.</div>
-                            <div class="datePosted">Jan-23-2017 12:00PM</div>
-                        </div>
-                        <div class="col-md-9">
-                            <span class="className"> <a href="#" class="subjLink"> WEB-PRG</a></span>
-                            <span><a href class="followBtn">Following</a></span>
-                            <div class="title"><a href="/comment.html" class="titleThread"> The quick brown fox jumps over the lazy dog</a></div>
-                            <div class="desc"> Lorem Ipsum has been the industry's standard dummy text
-                                ever since the 1500s, when an unknown printer took a galley of type 
-                                and scrambled it to make a type specimen book.
-                            </div>
-                            <div>
-                                <span class="link-span">
-                                <a href="#" class="commentLink">Comments <span class="commentNumber">(24)</span></a>
-                                </span>
-                                <span class="link-span">|</span>
-                                <span class="link-span">144 Views</span>
-                            </div>
-                        </div>
-                    </div>
+					<?php foreach($thread_details as $object): ?>
+						<div class="row thread">
+					
+							<div class="col-md-3 byLine">
+								<img src="/round.png" width="50" >
+								<div class="name"><?=$object->email?> </div>
+								<div class="datePosted"><?=$object->thread_datesub?></div>
+							</div>
+								
+							<div class="col-md-9">
+								<span class="className"> <a href="#" class="subjLink"><?=$object->class_code?></a></span>
+								<span><a href class="followBtn">Following</a></span>
+								<div class="title"><?=anchor('Thread_Cont/index/'.$object->thread_id, $object->thread_title);?></a></div>
+								<div class="desc"><?=$object->thread_desc?></div>
+								<span class="link-span">
+								<a href="#" class="commentLink">Comments <span class="commentNumber">(24)</span></a>
+								</span>
+								<span class="link-span">|</span>
+								<span class="link-span">144 Views</span>
+							</div>
+						
+						</div>
+					<?php endforeach; ?>
+					
                 <!---------------------PAGINATION-------------------->
                     <div class="row">
                       <nav aria-label="...">
