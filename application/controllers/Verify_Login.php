@@ -2,17 +2,25 @@
 class Verify_Login extends CI_Controller {
  
 
- 
+ function __construct() {
+        parent::__construct();
+        $this->load->database();
+       $this->load->model('login_model');
+    }
+
  function index()
  {
    //This method will have the credentials validation
-
+    $datestring = '%Y-%m-%d %H:%i:%s';
+    $time = time();
+    $timestamp = mdate($datestring, $time); 
    $this->form_validation->set_rules('username', 'Username');
    $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
  
    if($this->form_validation->run() == TRUE)
    {
      //Field validation failed.  User redirected to login page
+      $this->login_model->updateLogin($this->input->post('username'),$timestamp);
       redirect('Home_Cont', 'refresh');
    }
    else
