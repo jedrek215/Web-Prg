@@ -5,6 +5,10 @@ class Register extends CI_Controller {
  
  function index(){
  $this->load->model('login_model');
+
+    $datestring = '%Y-%m-%d %H:%i:%s';
+    $time = time();
+    $timestamp = mdate($datestring, $time); 
     $this->form_validation->set_rules('firstName', 'First Name', 'required|xss_clean');
     $this->form_validation->set_rules('lastName', 'Last Name', 'required|xss_clean');
     $this->form_validation->set_rules('email', 'Email Address', 'xss_clean|callback_check_if_exists');  
@@ -22,9 +26,12 @@ class Register extends CI_Controller {
         'password'    => $this->input->post('regPass'),
         'idnumber'    => $this->input->post('idNumber') ,
         'degree'     => $this->input->post('degree'),
-        'college'     => $this->input->post('college')
+        'college'     => $this->input->post('college'),
+        'lastlogin'   => $timestamp,
+        'fullname'    => $this->input->post('firstName') . ' ' . $this->input->post('lastName')
       );
      $this->login_model->register($data); 
+
      redirect('Home_Cont','refresh');
    }
    else
@@ -55,6 +62,13 @@ class Register extends CI_Controller {
      $this->form_validation->set_message('check_if_exists', 'Email Address is taken');
      return false;
    }
+  }
+
+  function updateinfo(){
+    $this->load->model('Login_model');
+    $this->Login_model->updateInfo($this->input->post('useremail'),$this->input->post('newpass')); 
+     redirect('Home_Cont','refresh');
+  
   }
 }
 ?>
