@@ -11,19 +11,18 @@
 
                     </div>
                 <!----------------CLASS THREAD -------------->
+                  <?php if ($followed_class != NULL){
+                    foreach($followed_class as $object):?>
                      <div class="row thread subj">
                         <div class="col-md-12">
                             <div class="subjClass">
                                 <span class="subjA">
-                                <a href="#"> DIGITAL&nbsp;<small>(Digital Electronics)</small></a>
+                                <?=anchor('Classesthread_Cont/index/'.$object->class_id, $object->class_code, array('class'=>'subjLink'));?></a>&nbsp;<small>(<?=$object->class_name?>)</small></a>
                                 </span>
                                 <a href class="followBtn">Following</a>
                                 
                             </div>
-                            <div class="desc"> Lorem Ipsum has been the industry's standard dummy text
-                                ever since the 1500s, when an unknown printer took a galley of type 
-                                and scrambled it to make a type specimen book.
-                            </div>
+                            <div class="desc"> <?=$object->class_desc?></div>
                             <div>
                                 <span class="link-span">
                                 20 posts</span>
@@ -32,7 +31,7 @@
                             </div>
                         </div>
                     </div>
-                    
+                    <?php endforeach; }?>
                     <!------------PAGINATION---------------->
                     <div class="row">
                       <nav aria-label="...">

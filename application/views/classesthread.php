@@ -8,7 +8,7 @@
                 <!----------------BODY SECTION-------------------->
                 <div class="bodySect">
                      <div class="row collabSubj">
-                        <div class="subject">MICPRO2</div>
+                        <div class="subject"><?=$classcode?></div>
                          <div style="padding-top: 20px;">
                         <span> 
                          <a href="#collabModal" data-toggle="modal" id="collabBtn">Collaborate</a>
@@ -21,18 +21,20 @@
                          </div>
                     </div>
                 <!----------------THREAD LIST-------------------->
+
+                     <?php  if ($class_threads != NULL){
+                     foreach($class_threads as $object):?>
                      <div class="row thread">
                         <div class="col-md-3 byLine">
                             <img src="/round.png" width="50" >
-                            <div class="name">Name L.</div>
-                            <div class="datePosted">Jan-23-2017 12:00PM</div>
+                            <div class="name"><?=$object->email?></div>
+                            <div class="datePosted"><?=$object->thread_datesub?></div>
                         </div>
                         <div class="col-md-9">
-                            <span><a href class="followBtn">Following</a></span>
-                            <div class="title"><a href="#" class="titleThread"> The quick brown fox jumps over the lazy dog</a></div>
-                            <div class="desc"> Lorem Ipsum has been the industry's standard dummy text
-                                ever since the 1500s, when an unknown printer took a galley of type 
-                                and scrambled it to make a type specimen book.
+                            <span><a href="" class="followBtn">Following</a></span>
+
+                            <div class="title"><?=anchor('Thread_Cont/index/'.$object->thread_id, $object->thread_title, array('class'=>'titleThread'));?> </a></div>
+                            <div class="desc"> <?=$object->thread_desc?>
                             </div>
                             <div>
                                 <span class="link-span">
@@ -43,6 +45,11 @@
                             </div>
                         </div>
                     </div>
+                <?php endforeach; }
+                    else echo 'No Threads';
+                ?>
+
+
                 <!-------------PAGINATION---------------------->
                     <div class="row">
                       <nav aria-label="...">
