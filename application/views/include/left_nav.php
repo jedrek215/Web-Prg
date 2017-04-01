@@ -8,13 +8,15 @@
                           <div class="navbar-collapse collapse sidebar-navbar-collapse">
                           <ul class="nav navbar-nav">
                             <li style="color: #f57f17; padding-left:40px; font-size:15px; border-bottom:1px solid # #f57f17;">Courses</li>
-                            <li><a href="/classesthread.html">MICPRO2</a></li>
-                            <li><a href="#">WEB-PRG</a></li>
-                            <li><a href="#">COMPARC</a></li>
-                            <li><a href="#">BASCDSP</a></li>
-                            <li><a href="#">LBYMIC2</a></li>
-                            <li><a href="#">PICCTRL</a></li>  
-                            <li><a href="#">See More</a></li>
+                           <!--<li><a href="/classesthread.html">MICPRO2</a></li>-->
+                            <?php if ($followed_class != NULL){
+                            foreach($followed_class as $object){
+                              //echo'  <option value ="'.$object->follow_classid.'">'.$object->class_code.'</option>';
+                              echo '<li>'.anchor('Classesthread_Cont/index/'.$object->follow_classid, $object->class_code). '</a></li>';
+                              }
+                            } else{
+                              echo '<br><center><li><a href="'.base_url('Class_Cont').'"><h4>Follow Classes</h4></a></li></center><br>';
+                              }?>
                           </ul>
                         </div>
                     </div>
