@@ -11,6 +11,7 @@
     <script src="<?php echo base_url('bootstrap/js/bootstrap.min.js')?>"></script>
     <script src="<?php echo base_url('jquery/navigation.js')?>"></script>
     <script src="<?php echo base_url('/jquery/jquery.validate.js')?>"></script>
+    <script src="<?php echo base_url('/jquery/validation.js');?>"></script>
     <title>Collab - Classes</title>
      <link rel="shortcut icon" href="<?php echo base_url('icon.jpg')?>" type="icon">
 </head>
