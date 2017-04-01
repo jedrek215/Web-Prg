@@ -20,12 +20,20 @@
           <li class="dropdown" id="user"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
               <img src="<?php echo base_url('userIcon.jpg')?>" width="35" ></a>
               <ul class="dropdown-menu" id="dropdownMenu">
-                <li class="nameHere"><center>Name Here</center></li>
+                <li class="nameHere"><center><?php foreach ($userinfo as $object){
+                                              echo $object->Fullname;}?></center></li>
                 <hr>
-                <li> <a href="#editProfile" data-toggle="modal">Edit Profile</a></li>
+                <li> <a href="" id="edit" data-toggle="modal">Edit Profile</a></li>
                 <li><a href="<?php echo base_url('/Login_Cont')?>">Logout</a></li>
               </ul>
           </li> 
         </ul>
       </div>
     </nav>
+
+    <script>
+        $("#edit").on('click', function() {
+         getTerm();
+        // window.location = "http://www.google.com";
+        });
+    </script>
