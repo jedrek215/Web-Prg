@@ -11,8 +11,7 @@
 	    function getCollege()
 	   {
 	   	$code ='SELECT * 
-				FROM college, department
-				where dept_collegeid = college_id;';
+				FROM college ;';
 	   			$query = $this->db->query($code);
 
 	     if($query -> num_rows() > 0)
@@ -25,10 +24,11 @@
 	     }
 	   }
 
-	   function getDepartment()
+	   function getDepartment($collegeid)
 	   {
 	   	$code ='SELECT * 
-				FROM department';
+				FROM department
+				where dept_collegeid ="'.$collegeid.'"';
 	   			$query = $this->db->query($code);
 
 	     if($query -> num_rows() > 0)
@@ -40,6 +40,74 @@
 	       return NULL;
 	     }
 	   }
+
+	   function getThread_Class($threadid){
+	   		$code ='SELECT*
+			FROM followedclass, classes, thread,user_acct
+			where followedclass.follow_classid = classes.class_id
+			and class_id ="'.$threadid.'" and class_id = thread.thread_classid
+			and user_id = thread_acctid';
+	   			$query = $this->db->query($code);
+
+	     if($query -> num_rows() > 0)
+	     {
+	       return $query->result();
+	     }
+	     else
+	     {
+	       return NULL;
+	     }
+	   }
+
+	    function getClassCode($threadid){
+	   		$code ='SELECT*
+			FROM classes
+			where class_id ="'.$threadid.'"';
+	   			$query = $this->db->query($code);
+
+	     if($query -> num_rows() == 1)
+	     {
+	       return $query->result();
+	     }
+	     else
+	     {
+	       return NULL;
+	     }
+	   }
+
+	   function getDeptName($deptid){
+	   		$code ='SELECT*
+			FROM department
+			where dept_id ="'.$deptid.'"';
+	   			$query = $this->db->query($code);
+
+	     if($query -> num_rows() == 1)
+	     {
+	       return $query->result();
+	     }
+	     else
+	     {
+	       return NULL;
+	     }
+	   }
+
+	   function getClasses($deptid){
+		   	$code ='SELECT *
+					FROM classes, department
+					where dept_id = class_deptid and
+					dept_id ="'.$deptid.'"';
+		   			$query = $this->db->query($code);
+
+		     if($query -> num_rows() > 0)
+		     {
+		       return $query->result();
+		     }
+		     else
+		     {
+		       return NULL;
+		     }
+	   }
+
 
 }
 ?>

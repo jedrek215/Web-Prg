@@ -57,4 +57,19 @@ Class Login_Model extends CI_Model
         $this->db->close();
     }
 
+  function updateLogin($username, $login){
+    $code = 'UPDATE collab.user_acct
+         SET
+        lastlogin = '.'"'.$login.'"'.'
+        WHERE email = '.'"'.$username.'"'.';';
+    $this->db->query($code);
+  }
+
+  function updateInfo($username, $pass){
+    $code = 'UPDATE collab.user_acct
+         SET
+        password = '.'"'.$pass.'"'.'
+        WHERE email = '.'"'.$username.'"'.';';
+    $this->db->query($code);
+  }
 }

@@ -9,7 +9,8 @@ class Home_model extends CI_Model {
 	function fetch_all_threads(){
 		$query = $this->db->query('SELECT *
 				FROM classes C, thread T, user_acct U
-				WHERE U.user_id = T.thread_acctid and C.class_id = T.thread_classid');
+				WHERE U.user_id = T.thread_acctid and C.class_id = T.thread_classid
+				order by thread_datesub DESC');
 				
 		if($query->num_rows()>0){
 			return $query->result();
@@ -69,6 +70,21 @@ class Home_model extends CI_Model {
 			
 		}
 	}
+
+	function userid($id){
+	$query = $this->db->query('SELECT *
+								FROM user_acct
+								WHERE user_id = "' .$id. '"');
+								
+	if($query->num_rows()>0){
+		return $query->result();
+		
+	}else {
+		return NULL;
+		
+	}
+}
+
 }	
 
 				
