@@ -13,8 +13,15 @@ class Thread_Cont extends CI_Controller{
 	}
 
 	public function home(){
+		if ($this->session->userdata('logged_in')){
+	      $session_data = $this->session->userdata('logged_in');
+	      $data['username'] = $session_data['username'];
+	    }
+	    
 		$thread_id = $this->uri->segment(3);
-		
+		$datestring = '%Y-%m-%d %H:%i:%s';
+        $time = time();
+        $data['timestamp'] = mdate($datestring, $time);	
 		$data['thread_details'] = $this->Home_model->fetch_thread($thread_id);
         $data['comments'] = $this->Thread_model->fetch_comments($thread_id);
         $data['ds_id'] = $thread_id;
@@ -26,6 +33,7 @@ class Thread_Cont extends CI_Controller{
             $this->load->view('include/comment_head');
 			$this->load->view('include/top_nav');
 			$this->load->view('comment', $data);
+			$this->load->view('include/modal',$data);
         } 
 		
     }

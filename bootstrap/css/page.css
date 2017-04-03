@@ -380,7 +380,7 @@ li{
     float: right;
     font-size: 14px;
     background-color: #f9a825;
-    padding: 8px 15px 8px 15px;
+    padding: 5px 15px 5px 15px;
     color: white;
     border-radius: 6px;
     margin-right: -10px;
@@ -667,4 +667,36 @@ textarea{
 .nameHere{
     padding-top: 10px;
     margin-bottom: -10px;
+}
+
+.COB{
+    margin-left: 75px;
+}
+
+.CCS{
+    margin-left:19px;
+}
+
+.CED{
+    margin-left:68px;
+}
+
+.COE{
+    margin-left: 56px;
+}
+
+.CLA{
+    margin-left: 60px;
+}
+
+.COL{
+    margin-left:103px;
+}
+
+.COS{
+    margin-left: 80px;
+}
+
+.SOE{
+    margin-left: 60px;
 }

@@ -10,6 +10,7 @@
         <script src="<?php echo base_url('jquery/jquery-3.1.1.min.js')?>"></script>
         <script src="<?php echo base_url('bootstrap/js/bootstrap.min.js')?>"></script>
         <script src="<?php echo base_url('jquery/navigation.js')?>"></script>
+        <script src="<?php echo base_url('/jquery/validation.js');?>"></script>
         <title>The quick brown fox jumps over the lazy dog</title>
         <link rel="shortcut icon" href="<?php echo base_url('icon.jpg')?>" type="icon">
     </head>

@@ -7,8 +7,11 @@
                     <h4>Collaborate</h4>
                 </div>
                 <div class="modal-body">
-                    <form action="#" method="post">
+                    <?php echo validation_errors();
+                        echo form_open('ThreadPost'); ?>
                         <div class="titleDiv">
+                        <input type="hidden" name="username" id="username" value="<?php echo $username;?>">
+                        <input type="hidden" name="dateSub" id="dateSub" value="<?php echo $timestamp;?>">
                         <input placeholder="Title"type="text" size="60" class="collabTitle" name="collabTitle" required>
                         </div>
                         <div class="descDiv">
@@ -20,12 +23,11 @@
                         <div class="selectDiv">
                         <select class="collabSelect" name="collabSelect">
                             <option selected>Select Subject</option>
-                            <option value="">WEB-PRG</option>
-                            <option>MICPRO2</option>
-                            <option>COMPARC</option>
-                            <option>BASCDSP</option>
-                            <option>PICCTRL</option>
-                            <option>LBYMIC2</option>
+                            <?php 
+                            foreach($followed_class as $object){
+                              echo'  <option value ="'.$object->follow_classid.'">'.$object->class_code.'</option>';
+                            }
+                            ?>
                         </select>
                         </div>
                         <div class="subDiv">
@@ -45,16 +47,19 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4>Edit Profile</h4>
                 </div>
+                 <?php
+                $attributes = array( 'id' => 'editProfileModal');
+                echo form_open('Register/updateinfo', $attributes); ?>
                 <div class="modal-body">
-                    <form action="#" method="post" class="editProfileModal">
+                        <fieldset>
                         <div>
                             <label>Name:</label>
-                            <span class="fnameEdit"> FirstName </span>
-                            <span class="lnameEdit"> LastName </span>
+                            <input type="hidden" name="useremail" id="useremail" value="<?php echo $username;?>">
+                            <span name ="fnameEdit" class="fnameEdit"></span>
                         </div>
                         <div>
                             <label>Email Address:</label>
-                            <span class="emailEdit"> first_last@dlsu.edu.ph</span>
+                            <span name="emailEdit" class="emailEdit"></span>
                         </div>
                         <div>
                             <label>Password:</label>
@@ -63,25 +68,25 @@
                             <div id="showChangePW" style="display: none;">
                                 <small style="padding-left: 20px; color: grey;">Input your New Password</small>
                                 <div>
-                                <input type="password" placeholder="New Password"><br>
+                                <input type="password" name="newpass" id="newpass" placeholder="New Password" required/><br>
                                 </div>
                                 <div>
-                                <input type="passowrd" placeholder="Repeat Password">
+                                <input type="password" name="confirmpass" id="confirmpass" placeholder="Repeat Password" required/>
                                 </div>
                             </div>
                         <div>
                             <label>ID Number:</label>
-                            <span class="idNumEdit">11412345</span>
+                            <span name="idNumEdit" class="idNumEdit"></span>
                         </div>    
                             <div><label>College & Degree</label>
-                                <span class="change1">(<a href="#" id="changeCD">Change College & Degree</a>)</span>
+                                <span  class="change1">(<a href="#" id="changeCD">Change College & Degree</a>)</span>
                         </div>
                         
                             <div id="showChangeCD" style="display: none;">
                                 <small style="color: grey;">Select your New College and Degree</small>
                                 <br>
                                <span>
-                                  <select id="college" name="college">
+                                  <select name="college" id="college" name="college">
                                     <option selected>College</option>
                                     <option value="COB">COB</option>   
                                     <option value="CCS">COS</option>
@@ -94,17 +99,18 @@
                                     </select>
                               </span>
                               <span>
-                                   <select id="degree" name="degree">
+                                   <select name="degree" id="degree" name="degree">
                                     <option>Degree</option>
                                     </select>
                               </span>
                             </div>
                         
                         <div  style="padding-bottom: 30px">
-                            <button name="submitEdit" class="collabSub">Submit</button>
+                            <input type="submit" name="submitEdit" class="collabSub">
                         </div>
-                    </form>
+                        </fieldset>
                 </div>
+            </form>
             </div>
         </div>
     </div>
@@ -126,6 +132,62 @@
         $('.change1').hide();
     })
     $('#postCollab').validate();
+
+    $(function() {
+
+   $('#editProfileModal').validate({
+        rules: {
+            newpass: {
+                required: true,
+                minlength: 7
+            },
+            confirmpass:{
+                required: true,
+                equalTo: "#newpass"
+            }
+        },
+        
+    });
+    });
+    /*-----------------------------------------------------------------------------*/
+   base_url = '<?=base_url()?>';
+
+     function getTerm(){
+    data =  $("#editProfileModal").serialize();
+    console.log(data);
+     var method = 'edit';
+    $('#editProfileModal')[0].reset(); // reset form on modals
+    $('.form-group').removeClass('has-error'); // clear error class
+    $('.help-block').empty(); // clear error string
+    
+    var url;
+        url = "Home_Cont/getUserInfo"; 
+
+    var id = "<?php foreach ($userinfo as $object){
+                echo $object->user_id;}?>";
+
+    console.log(base_url + url + "/" + id);
+    //Ajax Load data from ajax
+    $.ajax({
+        url : base_url + url + "/" + id,
+        type: "GET",
+        dataType: "JSON",
+        success: function(data)
+        {
+            console.log(data[0].email);
+            $('[name="fnameEdit"]').text(data[0].Fullname);
+            $('[name="emailEdit"]').text(data[0].email);
+            $('[name="idNumEdit"]').text(data[0].idnumber);
+            $('[name="college"]').val(data[0].college);
+              $('[name="degree"]').val(data[0].degree);
+            $('#editProfile').modal('show'); // show bootstrap modal when complete loaded
+ 
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+            alert('Error get data from ajax');
+        }
+    });
+    }
     </script>
-   
 </html> 

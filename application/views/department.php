@@ -1,8 +1,3 @@
-
-
-<body style="background-color: #fffde7">
-
-    
             <div class="col-md-10 section">
                 <!--------------BODY SECTION-------------------->
                 <div class="bodySect">
@@ -11,24 +6,25 @@
                          <a href="#collabModal" data-toggle="modal" id="collabBtn" >Collaborate</a>
                          </span>
                          <span class="deptClass">
-                         Computer Technology Department
+                         <?php foreach ($deptname as $name){
+                            echo $name->department.' Department';
+                          }?>
                          </span>
 
                     </div>
                 <!----------------CLASS THREAD -------------->
+                  <?php if ($classes != NULL){
+                    foreach($classes as $object):?>
                      <div class="row thread subj">
                         <div class="col-md-12">
                             <div class="subjClass">
                                 <span class="subjA">
-                                <a href="#"> COMORGA&nbsp;<small>(Computer Organizations)</small></a>
+                                <?=anchor('Classesthread_Cont/index/'.$object->class_id, $object->class_code, array('class'=>'subjLink'));?></a>&nbsp;<small>(<?=$object->class_name?>)</small></a>
                                 </span>
-                                <a href class="followBtn follow">Follow</a>
+                                <a href class="followBtn">Following</a>
                                 
                             </div>
-                            <div class="desc"> Lorem Ipsum has been the industry's standard dummy text
-                                ever since the 1500s, when an unknown printer took a galley of type 
-                                and scrambled it to make a type specimen book.
-                            </div>
+                            <div class="desc"> <?=$object->class_desc?></div>
                             <div>
                                 <span class="link-span">
                                 20 posts</span>
@@ -37,7 +33,7 @@
                             </div>
                         </div>
                     </div>
-                    
+                    <?php endforeach; }?>
                     <!------------PAGINATION---------------->
                     <div class="row">
                       <nav aria-label="...">
@@ -61,5 +57,3 @@
         </div>
     </div>
     
-   
-</html> 

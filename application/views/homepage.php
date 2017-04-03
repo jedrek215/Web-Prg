@@ -28,9 +28,9 @@
 							</div>
 								
 							<div class="col-md-9">
-								<span class="className"> <a href="#" class="subjLink"><?=$object->class_code?></a></span>
+								<span class="className"><?=anchor('Classesthread_Cont/index/'.$object->class_id, $object->class_code, array('class'=>'subjLink'));?></a></span>
 								<span><a href class="followBtn">Following</a></span>
-								<div class="title"><?=anchor('Thread_Cont/index/'.$object->thread_id, $object->thread_title);?></a></div>
+								<div class="title"><?=anchor('Thread_Cont/index/'.$object->thread_id, $object->thread_title, array('class'=>'titleThread'));?></a></div>
 								<div class="desc"><?=$object->thread_desc?></div>
 								<span class="link-span">
 								<a href="#" class="commentLink">Comments <span class="commentNumber">(24)</span></a>

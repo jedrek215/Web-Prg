@@ -49,7 +49,9 @@
                     </span>
                 </div>
 				
-                <?php foreach($comments as $object): ?>
+                <?php if ($comments != NULL) {
+                    
+                     foreach($comments as $object): ?>
                 <div class="row-comment">
                     <div class="col-md-3 byLine">
                         <img src="/round.png" width="50" >
@@ -58,7 +60,7 @@
                     </div>
                     <div class ="comment"><?=$object->comment_desc?></div>
                 </div>
-				<?php endforeach; ?>
+				<?php endforeach; } ?>
     <!---------------------PAGINATION-------------------->
 				<?=validation_errors();?>
 				<?=form_open('Thread_Cont/add_comment');?>
