@@ -7,11 +7,13 @@ class Home_model extends CI_Model {
 	}
   
 	function fetch_all_threads(){
-		$query = $this->db->query('SELECT *
-				FROM classes C, thread T, user_acct U
-				WHERE U.user_id = T.thread_acctid and C.class_id = T.thread_classid
-				order by thread_datesub DESC');
-				
+		$query = $this->db->query('SELECT *, count(com.comment_id) AS comment_count
+									FROM classes C, user_acct U, thread T
+									LEFT JOIN comments com ON COM.comment_threadid = T.thread_id
+									WHERE U.user_id = T.thread_acctid and C.class_id = T.thread_classid
+									GROUP BY thread_id
+									order by thread_datesub DESC');
+		
 		if($query->num_rows()>0){
 			return $query->result();
 			
@@ -20,10 +22,14 @@ class Home_model extends CI_Model {
 		}
 	}
 	
+	function fetch_following_threads(){
+
+	}
 	function fetch_thread($thread_id){
-		$query = $this->db->query('SELECT *
-				FROM classes C, thread T, user_acct U
-				WHERE T.thread_id = "'.$thread_id.'" and U.user_id = T.thread_acctid and C.class_id = T.thread_classid');
+		$query = $this->db->query('SELECT *, count(com.comment_id) AS comment_count
+									FROM classes C, user_acct U, thread T
+									LEFT JOIN comments com ON COM.comment_threadid = T.thread_id
+									WHERE T.thread_id = "'.$thread_id.'" and U.user_id = T.thread_acctid and C.class_id = T.thread_classid');
 				
 		if($query->num_rows()>0){
 			return $query->result();

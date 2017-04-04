@@ -20,16 +20,16 @@
 						<div class="datePosted"><?=$object->thread_datesub?></div>
 					</div>
                     <div class="col-md-9" style="margin-left: -20px;">
-                        <span class="className"> <a href="#" class="subjLink"><?=$object->class_code?></a></span>
+                        <span class="className"> <?=anchor('Classesthread_Cont/index/'.$object->class_id, $object->class_code, array('class'=>'subjLink'));?></a><a href="#" class="subjLink"></a></span>
                         <span><a href class="followBtn" >Following</a></span>
                         <div class="title"><?=$object->thread_title?></div>
                         <div class="desc"><?=$object->thread_desc?></div>
                         <div>
-                            <span class="link-span">
-                            Comments <span id="commentNumber">(24)</span>
+                            <span class="commentLink">
+                            Comments (<?=$object->comment_count?>)
                             </span>
                             <span class="link-span">|</span>
-                            <span class="link-span">144 Views</span>
+                            <span class="link-span"><?=$object->views?> Views</span>
                         </div>
                     </div>
                 </div>
@@ -61,13 +61,15 @@
                     <div class ="comment"><?=$object->comment_desc?></div>
                 </div>
 				<?php endforeach; } ?>
-    <!---------------------PAGINATION-------------------->
+    <!---------------------COMMENT BOX-------------------->
 				<?=validation_errors();?>
 				<?=form_open('Thread_Cont/add_comment');?>
 				<?=form_hidden('thread_id', $this->uri->segment(3));?>
+                <input type="hidden" name="username" id="username" value="<?php echo $username;?>">
+                <input type="hidden" name="dateSub" id="dateSub" value="<?php echo $timestamp;?>">
                 <div class= "commentSection">
                     <div class ="commentStyle">Post a Comment</div>
-                    <textarea class = "commentbox" name="commentmessage" rows="5" cols="130"></textarea>
+                    <textarea placeholder ="Comment" class = "commentbox" name="commentmessage" rows="5" cols="130" maxlength="300" required></textarea>
                     <button type="submit" class = "commentbtn">Comment</button>
                 </div>
 				<?=form_close();?>

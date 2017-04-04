@@ -37,11 +37,9 @@
                             <div class="desc"> <?=$object->thread_desc?>
                             </div>
                             <div>
-                                <span class="link-span">
-                                <a href="#" class="commentLink">Comments <span class="commentNumber">(24)</span></a>
-                                </span>
+                                <span class="commentLink"><?=anchor('Thread_Cont/index/'.$object->thread_id, 'Comments ('.$object->comment_count.')');?></span>
                                 <span class="link-span">|</span>
-                                <span class="link-span">144 Views</span>
+                                <span class="link-span"><?=$object->views?> Views</span>
                             </div>
                         </div>
                     </div>

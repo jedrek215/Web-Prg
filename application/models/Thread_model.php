@@ -21,6 +21,27 @@ class Thread_model extends CI_Model {
 		}
 	}
 
+	public function add_comment($data){
+		$this->db->insert('comments', $data);
+
+	    $id = $this->db->insert_id();
+	    
+	    return (isset($id)) ? $id : FALSE;    
+	}
+
+	public function add_views($thread_id){
+		$viewquery = $this->db->query('SELECT views
+									FROM thread
+									WHERE thread_id = "'.$thread_id.'"');
+
+		$res = $viewquery->result();
+		$views = $res[0]->views;
+		$views++;
+		$query = $this->db->query('UPDATE thread
+									SET views = "'.$views.'"
+									WHERE thread_id = "'.$thread_id.'"');		
+	}
+
 	public function getClassID($classid) {
 
 		$query = $this->db->query('SELECT *

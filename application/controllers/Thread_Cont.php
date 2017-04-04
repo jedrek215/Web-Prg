@@ -5,11 +5,11 @@ class Thread_Cont extends CI_Controller{
 	public function index()
 	{
 		$this->load->helper('string');
-        $this->load->library('form_validation');
-        $this->load->model('Home_model');
-        $this->load->model('Thread_model');
+    $this->load->library('form_validation');
+    $this->load->model('Home_model');
+    $this->load->model('Thread_model');
 		$this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
-		$this->home();
+		 $this->home();
 	}
 
 	public function home(){
@@ -17,11 +17,12 @@ class Thread_Cont extends CI_Controller{
 	      $session_data = $this->session->userdata('logged_in');
 	      $data['username'] = $session_data['username'];
 	    }
-	    
+
 		$thread_id = $this->uri->segment(3);
 		$datestring = '%Y-%m-%d %H:%i:%s';
         $time = time();
         $data['timestamp'] = mdate($datestring, $time);	
+        $this->Thread_model->add_views($thread_id);
 		$data['thread_details'] = $this->Home_model->fetch_thread($thread_id);
         $data['comments'] = $this->Thread_model->fetch_comments($thread_id);
         $data['ds_id'] = $thread_id;
@@ -36,6 +37,32 @@ class Thread_Cont extends CI_Controller{
 			$this->load->view('include/modal',$data);
         } 
 		
+    }
+
+    public function add_comment(){
+    	$this->load->model('Thread_model');
+    	$this->form_validation->set_rules('commentmessage', 'Comment Message', 'required|min_length[1]|max_length[300]');
+
+    	$thread_id = $this->input->post('thread_id');
+    	$query = $this->Thread_model->getAcctID($this->input->post('username'));
+      	if($query){
+        	foreach($query as $row){
+          		$id = $row->user_id;
+        	}
+      	}
+
+      	if($this->form_validation->run() == TRUE){
+      		$data = array(
+      			'comment_threadid'  => $this->input->post('thread_id'),
+      			'comment_desc'		=> $this->input->post('commentmessage'),
+      			'comment_datesub'	=> $this->input->post('dateSub'),
+      			'comment_acctid'	=> $id,
+      			'status'			=> 'A'
+      		);
+      		$this->Thread_model->add_comment($data);
+      		redirect('Thread_Cont/index/'.$thread_id, 'refresh'); 
+      	}
+
     }
 		//$this->load->view('include/comment_head');
 		//$this->load->view('include/top_nav');
