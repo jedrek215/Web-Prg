@@ -24,8 +24,8 @@
                             </div>
                             <div class="desc"> <?=$object->class_desc?></div>
                             <div>
-                                <span class="link-span">
-                                20 posts</span>
+                                <span class="link-span"><?=anchor('Classesthread_Cont/index/'.$object->class_id, $object->thread_count.' posts');?></a>
+                                </span>
                                 <span class="link-span">|</span>
                                 <span class="link-span">50 Followers</span>
                             </div>

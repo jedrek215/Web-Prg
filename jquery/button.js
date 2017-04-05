@@ -26,7 +26,7 @@ function btnOut(btn){
 
 base_url = '<?=base_url()?>';
 
-function threadBtnClick(btn, thread_id){
+function threadBtnClick(btn, thread_id, email){
 	if(btn.innerText == 'Follow'){
 		btn.style.background = '#f9a825';
 		btn.style.color = 'white';
