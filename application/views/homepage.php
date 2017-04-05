@@ -13,33 +13,33 @@
                          </span>
                          <span style="">
                              <form action="#" method="GET" id="filterForm">
-								<input type="text" id="filter" placeholder="Filter...">
+                                <input type="text" id="filter" placeholder="Filter...">
                              </form>
                          </span>
                     </div>
                 <!-------------------THREAD LIST---------------------->
-					<?php foreach($thread_details as $object): ?>
-						<div class="row thread">
-					
-							<div class="col-md-3 byLine">
-								<img src="/round.png" width="50" >
-								<div class="name"><?=$object->email?> </div>
-								<div class="datePosted"><?=$object->thread_datesub?></div>
-							</div>
-								
-							<div class="col-md-9">
-								<span class="className"><?=anchor('Classesthread_Cont/index/'.$object->class_id, $object->class_code, array('class'=>'subjLink'));?></a></span>
-								<span><button id = "followBtn" name = "followBtn" class="followBtn">Follow</button></span>
-								<div class="title"><?=anchor('Thread_Cont/index/'.$object->thread_id, $object->thread_title, array('class'=>'titleThread'));?></a></div>
-								<div class="desc"><?=$object->thread_desc?></div>
-								<span class="commentLink"><?=anchor('Thread_Cont/index/'.$object->thread_id, 'Comments ('.$object->comment_count.')');?></span>
-								<span class="link-span">|</span>
-								<span class="link-span"><?=$object->views?> Views</span>
-							</div>
-						
-						</div>
-					<?php endforeach; ?>
-					
+                    <?php foreach($thread_details as $object): ?>
+                        <div class="row thread">
+                    
+                            <div class="col-md-3 byLine">
+                                <img src="/round.png" width="50" >
+                                <div class="name"><?=$object->email?> </div>
+                                <div class="datePosted"><?=$object->thread_datesub?></div>
+                            </div>
+                                
+                            <div class="col-md-9">
+                                <span class="className"><?=anchor('Classesthread_Cont/index/'.$object->class_id, $object->class_code, array('class'=>'subjLink'));?></a></span>
+                                <span><button id = "followThreadBtn" name = "followThreadBtn" class="followThreadBtn" onmouseover= "btnOver(this)" onmouseout= "btnOut(this)" onclick = "threadBtnClick(this, <?=$object->thread_id?>)">Follow</button></span>
+                                <div class="title"><?=anchor('Thread_Cont/index/'.$object->thread_id, $object->thread_title, array('class'=>'titleThread'));?></a></div>
+                                <div class="desc"><?=$object->thread_desc?></div>
+                                <span class="commentLink"><?=anchor('Thread_Cont/index/'.$object->thread_id, 'Comments ('.$object->comment_count.')');?></span>
+                                <span class="link-span">|</span>
+                                <span class="link-span"><?=$object->views?> Views</span>
+                            </div>
+                        
+                        </div>
+                    <?php endforeach; ?>
+                    
                 <!---------------------PAGINATION-------------------->
                     <div class="row">
                       <nav aria-label="...">

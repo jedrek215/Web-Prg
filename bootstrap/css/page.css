@@ -376,15 +376,28 @@ li{
     color: #fdb16d;
 }
 
-.followBtn{
+.followThreadBtn{
     float: right;
-    font-size: 14px;
-    background-color: #f9a825;
+    background-color: #ffffff;
     padding: 5px 15px 5px 15px;
-    color: white;
+    color: #f9a825;
     border-radius: 6px;
-    margin-right: -10px;
+	font-size:15px;
+    border-radius: 6px;
+	border:  2px solid #ed6a00
 }
+
+.followClassBtn{
+    float: right;
+    background-color: #ffffff;
+    padding: 5px 15px 5px 15px;
+    color: #f9a825;
+    border-radius: 6px;
+	font-size:15px;
+    border-radius: 6px;
+	border:  2px solid #ed6a00
+}
+
 
 .followBtn a{
     color: white
