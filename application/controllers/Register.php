@@ -66,7 +66,7 @@ class Register extends CI_Controller {
 
   function updateinfo(){
     $this->load->model('Login_model');
-    $this->Login_model->updateInfo($this->input->post('useremail'),$this->input->post('newpass')); 
+    $this->Login_model->updateUserInfo($this->input->post('useremail'),$this->input->post('newpass')); 
      redirect('Home_Cont','refresh');
   
   }

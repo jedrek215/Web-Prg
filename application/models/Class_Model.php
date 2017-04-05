@@ -1,15 +1,14 @@
 <?php
 	class Class_Model extends CI_model{
 
-
 	function __construct() {
         parent::__construct();
         $this->load->database();
     }
 
 
-	    function getCollege()
-	   {
+    function getCollege()
+   {
 	   	$code ='SELECT * 
 				FROM college ;';
 	   			$query = $this->db->query($code);
@@ -22,10 +21,10 @@
 	     {
 	       return NULL;
 	     }
-	   }
+   }
 
-	   function getDepartment($collegeid)
-	   {
+   function getDepartment($collegeid)
+   {
 	   	$code ='SELECT * 
 				FROM department
 				where dept_collegeid ="'.$collegeid.'"';
@@ -39,14 +38,63 @@
 	     {
 	       return NULL;
 	     }
-	   }
+   }
 
-	   function getThread_Class($threadid){
-	   		$code ='SELECT*
-			FROM followedclass, classes, thread,user_acct
-			where followedclass.follow_classid = classes.class_id
-			and class_id ="'.$threadid.'" and class_id = thread.thread_classid
-			and user_id = thread_acctid';
+   function getDeptName($deptid){
+   		$code ='SELECT*
+		FROM department
+		where dept_id ="'.$deptid.'"';
+   			$query = $this->db->query($code);
+
+	     if($query -> num_rows() == 1)
+	     {
+	       return $query->result();
+	     }
+	     else
+	     {
+	       return NULL;
+	     }
+   }
+
+   function getThread_Class($classid){
+   		$code ='SELECT*
+		FROM followedclass, classes, thread,user_acct
+		where followedclass.follow_classid = classes.class_id
+		and class_id ="'.$classid.'" and class_id = thread.thread_classid
+		and user_id = thread_acctid';
+   			$query = $this->db->query($code);
+
+	     if($query -> num_rows() > 0)
+	     {
+	       return $query->result();
+	     }
+	     else
+	     {
+	       return NULL;
+	     }
+   }
+
+    function getClassCode($classid){
+   		$code ='SELECT*
+		FROM classes
+		where class_id ="'.$classsid.'"';
+   			$query = $this->db->query($code);
+
+	     if($query -> num_rows() == 1)
+	     {
+	       return $query->result();
+	     }
+	     else
+	     {
+	       return NULL;
+	     }
+   }
+
+   function getClasses($deptid){
+	   	$code ='SELECT *
+				FROM classes, department
+				where dept_id = class_deptid and
+				dept_id ="'.$deptid.'"';
 	   			$query = $this->db->query($code);
 
 	     if($query -> num_rows() > 0)
@@ -57,56 +105,7 @@
 	     {
 	       return NULL;
 	     }
-	   }
-
-	    function getClassCode($threadid){
-	   		$code ='SELECT*
-			FROM classes
-			where class_id ="'.$threadid.'"';
-	   			$query = $this->db->query($code);
-
-	     if($query -> num_rows() == 1)
-	     {
-	       return $query->result();
-	     }
-	     else
-	     {
-	       return NULL;
-	     }
-	   }
-
-	   function getDeptName($deptid){
-	   		$code ='SELECT*
-			FROM department
-			where dept_id ="'.$deptid.'"';
-	   			$query = $this->db->query($code);
-
-	     if($query -> num_rows() == 1)
-	     {
-	       return $query->result();
-	     }
-	     else
-	     {
-	       return NULL;
-	     }
-	   }
-
-	   function getClasses($deptid){
-		   	$code ='SELECT *
-					FROM classes, department
-					where dept_id = class_deptid and
-					dept_id ="'.$deptid.'"';
-		   			$query = $this->db->query($code);
-
-		     if($query -> num_rows() > 0)
-		     {
-		       return $query->result();
-		     }
-		     else
-		     {
-		       return NULL;
-		     }
-	   }
+   }
 
 
 }
