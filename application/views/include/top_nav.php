@@ -31,9 +31,10 @@
       </div>
     </nav>
 
+
     <script>
         $("#edit").on('click', function() {
          getTerm();
         // window.location = "http://www.google.com";
         });
-    </script>
+    </script> 

@@ -15,7 +15,7 @@
                         <input placeholder="Title"type="text" size="60" class="collabTitle" name="collabTitle" required>
                         </div>
                         <div class="descDiv">
-                        <textarea rows="4" cols="60" wrap="hard" name="collabDesc" class="collabDesc" maxlength="300" placeholder="Add Description" required></textarea>
+                        <textarea rows="4" type="text" cols="60" wrap="hard" name="collabDesc" class="collabDesc" maxlength="300" placeholder="Add Description" required></textarea>
                         </div>
                         <div class="charDiv">
                         <span id="numChar">0</span>/300
@@ -39,6 +39,44 @@
         </div>
     </div>
     
+  <!---------------------COLLABORATE EDIT MODAL---------------->
+    <div class="modal fade" id="collabEdit" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>Collaborate</h4>
+                </div>
+                <div class="modal-body">
+                    <?php echo validation_errors();
+                        $attributes = array('id' => 'editPostModal');
+                        echo form_open('Home_Cont/editThread', $attributes); ?>
+                        <div class="titleDiv">
+                        <input type="hidden" name="threadid" id="threadid" value="">
+                        <input type="hidden" name="dateSub" id="dateSub" value="<?php echo $timestamp;?>">
+                        <input placeholder="Title" type="text" size="60" class="editTitle" name="editTitle" required>
+                        </div>
+                        <div class="descDiv">
+                        <textarea rows="4" cols="60" wrap="hard" name="editDesc" class="editDesc" maxlength="300" placeholder="Add Description" required></textarea>
+                        </div>
+                        <div class="charDiv">
+                        <span id="numChar">0</span>/300
+                        </div>
+                        <div class="selectDiv">
+                        <span><b>Subject:</b></span>
+                        <span class="collabClass" name="collabClass">
+                        
+                        </span>
+                        </div>
+                        <div class="subDiv">
+                        <button name="collabSub" class="collabSub">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
    <!---------------------EDIT PROFILE-------------------->
      <div class="modal fade" id="editProfile" role="dialog">
         <div class="modal-dialog">
@@ -49,7 +87,7 @@
                 </div>
                  <?php
                 $attributes = array( 'id' => 'editProfileModal');
-                echo form_open('Register/updateinfo', $attributes); ?>
+                echo form_open('Register/updateInfo', $attributes); ?>
                 <div class="modal-body">
                         <fieldset>
                         <div>
@@ -118,7 +156,7 @@
      <script>
     $('.collabDesc').keyup(function () {
       var len = $(this).val().length;
-        console.log(len)
+        //console.log(len)
         $('#numChar').text(len);
     });
          
@@ -149,6 +187,8 @@
         
     });
     });
+
+
     /*-----------------------------------------------------------------------------*/
    base_url = '<?=base_url()?>';
 
@@ -157,9 +197,6 @@
     console.log(data);
      var method = 'edit';
     $('#editProfileModal')[0].reset(); // reset form on modals
-    $('.form-group').removeClass('has-error'); // clear error class
-    $('.help-block').empty(); // clear error string
-    
     var url;
         url = "Home_Cont/getUserInfo"; 
 
@@ -174,6 +211,7 @@
         dataType: "JSON",
         success: function(data)
         {
+            console.log(url);
             console.log(data[0].email);
             $('[name="fnameEdit"]').text(data[0].Fullname);
             $('[name="emailEdit"]').text(data[0].email);
@@ -188,6 +226,16 @@
             alert('Error get data from ajax');
         }
     });
+    };
+
+   function openModal(id,title, desc, classes){
+        $('[name="threadid"]').val(id);
+        $('[name="editTitle"]').val(title);
+        $('[name="editDesc"]').val(desc);
+        $(".collabClass").text(classes);
+        //console.log($(".collabClass").attr("value",classes););
+        console.log('success');
+        $("#collabEdit").modal("toggle");
     }
     </script>
 </html> 

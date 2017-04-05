@@ -15,7 +15,9 @@ class Dept_Cont extends CI_Controller{
 	}
 
 	public function home(){	
-		
+		if ($this->session->userdata('logged_in')){
+	      $session_data = $this->session->userdata('logged_in');
+	      $data['username'] = $session_data['username'];
 		$data['college'] = $this->menu->getCollege();
 		$deptid = $this->uri->segment(3);
 		$data['deptname'] = $this->menu->getDeptName($deptid);
@@ -29,7 +31,7 @@ class Dept_Cont extends CI_Controller{
 		$this->load->view('include/department_nav', $data);
 		$this->load->view('department',$data);
 		$this->load->view('include/modal',$data);
-
+	}
 	}
 
 

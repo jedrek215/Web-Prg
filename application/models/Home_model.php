@@ -20,6 +20,20 @@ class Home_model extends CI_Model {
 		}
 	}
 	
+	function fetch_my_threads($username){
+		$query = $this->db->query('SELECT *
+				FROM classes C, thread T, user_acct U
+				WHERE U.user_id = T.thread_acctid and C.class_id = T.thread_classid
+				and U.email ="'.$username.'"
+				order by thread_datesub DESC');
+				
+		if($query->num_rows()>0){
+			return $query->result();
+			
+		}else {
+			return NULL;
+		}
+	}
 	function fetch_thread($thread_id){
 		$query = $this->db->query('SELECT *
 				FROM classes C, thread T, user_acct U
@@ -84,7 +98,14 @@ class Home_model extends CI_Model {
 		
 	}
 }
-
+function updateInfo($threadid, $thread_title, $thread_desc){
+    $code = 'UPDATE collab.thread
+         SET
+        thread_title = '.'"'.$thread_title.'"'.',
+        thread_desc = '.'"'.$thread_desc.'"'.'
+        WHERE thread_id = '.'"'.$threadid.'"'.';';
+    $this->db->query($code);
+  }
 }	
 
 				
