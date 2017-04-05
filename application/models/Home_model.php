@@ -21,13 +21,15 @@ class Home_model extends CI_Model {
 			return NULL;
 		}
 	}
-\
+
 	function fetch_my_threads($username){
-		$query = $this->db->query('SELECT *
-				FROM classes C, thread T, user_acct U
-				WHERE U.user_id = T.thread_acctid and C.class_id = T.thread_classid
-				and U.email ="'.$username.'"
-				order by thread_datesub DESC');
+		$query = $this->db->query('SELECT *, count(com.comment_id) AS comment_count
+									FROM classes C, user_acct U, thread T
+									LEFT JOIN comments com ON COM.comment_threadid = T.thread_id
+									WHERE U.user_id = T.thread_acctid and C.class_id = T.thread_classid
+									and U.email ="'.$username.'"
+									GROUP BY thread_id
+									order by thread_datesub DESC');
 				
 		if($query->num_rows()>0){
 			return $query->result();
@@ -35,10 +37,10 @@ class Home_model extends CI_Model {
 		}else {
 			return NULL;
 		}
-		
+	}
 	function fetch_following_threads(){
 
->>>>>>> Kyle
+
 	}
 	function fetch_thread($thread_id){
 		$query = $this->db->query('SELECT *, count(com.comment_id) AS comment_count
@@ -84,5 +86,5 @@ class Home_model extends CI_Model {
 	}
 	
 }	
-
+?>	
 				

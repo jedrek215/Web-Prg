@@ -30,17 +30,22 @@
 							<div class="col-md-9">
 								<span class="className"><?=anchor('Classesthread_Cont/index/'.$object->class_id, $object->class_code, array('class'=>'subjLink'));?></a></span>
 								<span class="dropdown_sort">
-                                    <button type="button" class="setting" aria-label ="center" onclick="openModal(<?php 
+                                   <button onclick="myFunction()" class="setting"><span class="glyphicon glyphicon-cog"></span></button>
+                                        <div id="myDropdown" class="dropdown-content">
+                                            <a onclick="openModal(<?php 
                                                         echo '\''.$object->thread_id.'\',\''.$object->thread_title  .'\',\''.$object->thread_desc.'\',\''.$object->class_code.'\'';?>)">Edit Post</span></button>
+                                            <a href="#">Delete Post</a>
+                                        </div>
+
                                                                           
                                 </span>
 								<div class="title"><?=anchor('Thread_Cont/index/'.$object->thread_id, $object->thread_title, array('class'=>'titleThread'));?></a></div>
 								<div class="desc"><?=$object->thread_desc?></div>
 								<span class="link-span">
-								<a href="#" class="commentLink">Comments <span class="commentNumber">(24)</span></a>
+								<a href="#" class="commentLink"><?=anchor('Thread_Cont/index/'.$object->thread_id, 'Comments ('.$object->comment_count.')');?></a>
 								</span>
 								<span class="link-span">|</span>
-								<span class="link-span">144 Views</span>
+								<span class="link-span"><?=$object->views?> </span>
 							</div>
 						</div>
 					<?php endforeach;} ?>
