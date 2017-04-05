@@ -11,10 +11,10 @@
 
                     </div>
                 <!----------------CLASS THREAD -------------->
-                  <?php if ($followed_class != NULL){
-                    foreach($followed_class as $object):?>
-                     <div class="row thread subj">
-                        <div class="col-md-12">
+                    <?php if ($followed_class != NULL){
+                      foreach($followed_class as $object):?>
+                        <div class="row thread subj">
+                          <div class="col-md-12">
                             <div class="subjClass">
                                 <span class="subjA">
                                 <?=anchor('Classesthread_Cont/index/'.$object->class_id, $object->class_code, array('class'=>'subjLink'));?></a>&nbsp;<small>(<?=$object->class_name?>)</small></a>

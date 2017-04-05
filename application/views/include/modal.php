@@ -12,7 +12,7 @@
                         <div class="titleDiv">
                         <input type="hidden" name="username" id="username" value="<?php echo $username;?>">
                         <input type="hidden" name="dateSub" id="dateSub" value="<?php echo $timestamp;?>">
-                        <input placeholder="Title"type="text" size="60" class="collabTitle" name="collabTitle" required>
+                        <input placeholder="Title" type="text" size="60" class="collabTitle" name="collabTitle" required>
                         </div>
                         <div class="descDiv">
                         <textarea rows="4" type="text" cols="60" wrap="hard" name="collabDesc" class="collabDesc" maxlength="300" placeholder="Add Description" required></textarea>
