@@ -65,7 +65,7 @@ Class Login_Model extends CI_Model
     $this->db->query($code);
   }
 
-  function updateInfo($username, $pass){
+  function updateUserInfo($username, $pass){
     $code = 'UPDATE collab.user_acct
          SET
         password = '.'"'.$pass.'"'.'

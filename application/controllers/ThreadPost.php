@@ -11,14 +11,8 @@ class ThreadPost extends CI_Controller {
     $this->form_validation->set_rules('collabSelect', 'Collaborate Subjects', 'required');  
     
       $this->load->model('thread_model');
-      // $query = $this->thread_model->getClassID($this->input->post('collabSelect'));
-      // if($query){
-      //   foreach($query as $row){
-      //     $classID = $row->classID;
-      //   }
-      // }
-
-      $query = $this->thread_model->getAcctID($this->input->post('username'));
+      $this->load->model('Home_model')
+      $query = $this->thread_model->get_userId($this->input->post('username'));
       if($query){
         foreach($query as $row){
           $id = $row->user_id;

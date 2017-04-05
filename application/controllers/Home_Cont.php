@@ -79,7 +79,7 @@ class Home_Cont extends CI_Controller{
 	}
 
 	  function editThread(){
-    $this->Home_model->updateInfo($this->input->post('threadid'),$this->input->post('editTitle'),$this->input->post('editDesc')); 
+    $this->Thread_model->editThread($this->input->post('threadid'),$this->input->post('editTitle'),$this->input->post('editDesc')); 
      redirect('Home_Cont/mythreads','refresh');
   
   }

@@ -13,7 +13,7 @@ class Thread_model extends CI_Model {
 									 C.comment_threadid = T.thread_id and
 									 C.comment_acctid = U.user_id');
 		
-		if($query->num_rows()>0){
+		if($query->num_rows()>0) {
 			return $query->result();
 			
 		}else {
@@ -89,6 +89,15 @@ class Thread_model extends CI_Model {
 		}else {
 			return NULL;
 		}
+	}
+
+	public function editThread($threadid, $thread_title, $thread_desc){
+	    $code = 'UPDATE collab.thread
+	         SET
+	        thread_title = '.'"'.$thread_title.'"'.',
+	        thread_desc = '.'"'.$thread_desc.'"'.'
+	        WHERE thread_id = '.'"'.$threadid.'"'.';';
+	    $this->db->query($code);
 	}
 }	
 ?>
