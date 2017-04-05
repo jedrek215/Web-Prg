@@ -78,10 +78,14 @@ class Home_Cont extends CI_Controller{
 		}	
 	}
 
-	  function editThread(){
+  function editThread(){
     $this->Thread_model->editThread($this->input->post('threadid'),$this->input->post('editTitle'),$this->input->post('editDesc')); 
      redirect('Home_Cont/mythreads','refresh');
-  
+  }
+
+  function deleteThread(){
+    $this->Thread_model->deleteThread($this->input->post('id')); 
+     redirect('Home_Cont/mythreads','refresh');
   }
 }
 ?>

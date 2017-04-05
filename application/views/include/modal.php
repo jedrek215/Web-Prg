@@ -77,6 +77,29 @@
         </div>
     </div>
 
+     <!---------------------COLLABORATE DELETE MODAL---------------->
+    <div class="modal fade" id="collabDelete" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>Collaborate</h4>
+                </div>
+                <div class="modal-body">
+                    <?php echo validation_errors();
+                        $attributes = array('id' => 'deletePostModal');
+                        echo form_open('Home_Cont/deleteThread', $attributes); ?>
+                        <input type="hidden" name="id" id="id" value="">
+                        <input type="hidden" name="status" id="status" value="">
+                        <center><h4>Delete post: <span id="titlePost" name="titlePost"></span>?</h4></center>
+                        <div class="subDiv">
+                        <button name="collabSub" class="collabSub">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
    <!---------------------EDIT PROFILE-------------------->
      <div class="modal fade" id="editProfile" role="dialog">
         <div class="modal-dialog">
@@ -236,6 +259,14 @@
         //console.log($(".collabClass").attr("value",classes););
         console.log('success');
         $("#collabEdit").modal("toggle");
+    }
+
+    function deleteModal(id,title){
+        $('[name="id"]').val(id);
+        document.getElementById("titlePost").innerHTML = title;
+        $('[name="status"]').val("D");
+        console.log('success');
+        $("#collabDelete").modal("toggle");
     }
     </script>
 </html> 

@@ -26,7 +26,8 @@ class ThreadPost extends CI_Controller {
         'thread_title'    =>$this->input->post('collabTitle'),
         'thread_desc'    =>$this->input->post('collabDesc'),
         'thread_datesub' =>$this->input->post('dateSub'),
-        'thread_acctid' =>$id
+        'thread_acctid' =>$id,
+        'status' => "A"
       );
      $this->thread_model->postThread($data);
      redirect('/Home_Cont', 'refresh'); 

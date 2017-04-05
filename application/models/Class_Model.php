@@ -46,7 +46,7 @@
 					LEFT JOIN comments ON comments.comment_threadid = thread.thread_id
 					where followedclass.follow_classid = classes.class_id
 					and class_id ="'.$classid.'" and class_id = thread.thread_classid
-					and user_id = thread_acctid
+					and user_id = thread_acctid and thread.status ="A"
 					GROUP BY thread_id
 					order by thread_datesub DESC';
    		$query = $this->db->query($code);

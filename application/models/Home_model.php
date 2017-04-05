@@ -11,6 +11,7 @@ class Home_model extends CI_Model {
 									FROM classes C, user_acct U, thread T
 									LEFT JOIN comments com ON COM.comment_threadid = T.thread_id
 									WHERE U.user_id = T.thread_acctid and C.class_id = T.thread_classid
+											and T.status ="A"
 									GROUP BY thread_id
 									order by thread_datesub DESC');
 		
@@ -27,7 +28,7 @@ class Home_model extends CI_Model {
 									FROM classes C, user_acct U, thread T
 									LEFT JOIN comments com ON COM.comment_threadid = T.thread_id
 									WHERE U.user_id = T.thread_acctid and C.class_id = T.thread_classid
-									and U.email ="'.$username.'"
+									and U.email ="'.$username.'" and T.status ="A"
 									GROUP BY thread_id
 									order by thread_datesub DESC');
 				
@@ -46,7 +47,7 @@ class Home_model extends CI_Model {
 		$query = $this->db->query('SELECT *, count(com.comment_id) AS comment_count
 									FROM classes C, user_acct U, thread T
 									LEFT JOIN comments com ON COM.comment_threadid = T.thread_id
-									WHERE T.thread_id = "'.$thread_id.'" and U.user_id = T.thread_acctid and C.class_id = T.thread_classid');
+									WHERE T.thread_id = "'.$thread_id.'" and U.user_id = T.thread_acctid and C.class_id = T.thread_classid and T.status ="A" and com.status="A"');
 				
 		if($query->num_rows()>0){
 			return $query->result();

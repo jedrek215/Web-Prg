@@ -33,8 +33,9 @@
                                    <button onclick="myFunction()" class="setting"><span class="glyphicon glyphicon-cog"></span></button>
                                         <div id="myDropdown" class="dropdown-content">
                                             <a onclick="openModal(<?php 
-                                                        echo '\''.$object->thread_id.'\',\''.$object->thread_title  .'\',\''.$object->thread_desc.'\',\''.$object->class_code.'\'';?>)">Edit Post</span></button>
-                                            <a href="#">Delete Post</a>
+                                                        echo '\''.$object->thread_id.'\',\''.$object->thread_title  .'\',\''.$object->thread_desc.'\',\''.$object->class_code.'\'';?>)">Edit Post</a>
+                                            <a onclick="deleteModal(<?php 
+                                                        echo '\''.$object->thread_id.'\',\''.$object->thread_title  .'\'';?>)">Delet Post</a>
                                         </div>
 
                                                                           

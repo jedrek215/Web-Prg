@@ -713,3 +713,20 @@ textarea{
 .SOE{
     margin-left: 60px;
 }
+
+.setting span{
+    color: #f9a825;
+    font-size: 20px;
+}
+.setting{
+    background: transparent;
+    border: none;
+}
+.setting:hover{
+    background: orange;
+    border-radius:20px;
+}
+
+.setting span:hover, setting span:focus{
+    color: white;
+}

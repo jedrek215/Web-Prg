@@ -31,7 +31,17 @@
                             <div class="datePosted"><?=$object->thread_datesub?></div>
                         </div>
                         <div class="col-md-9">
-                            <span><a href="" class="followBtn">Following</a></span>
+                           <?php if($object->email != $username){
+                                echo '<span><button id = "followThreadBtn" name = "followThreadBtn" class="followThreadBtn" onmouseover= "btnOver(this)" onmouseout= "btnOut(this)" onclick = "threadBtnClick(this,'. $object->thread_id.')">Follow</button></span>';}
+                                else{
+                                echo  '<span class="dropdown_sort">';
+                                echo '<button onclick="myFunction()" class="setting"><span class="glyphicon glyphicon-cog"></span></button>';
+                                echo '<div id="myDropdown" class="dropdown-content">';
+                                echo        '<a onclick="openModal(\''.$object->thread_id.'\',\''.$object->thread_title.'\',\''.$object->thread_desc.'\',\''.$object->class_code.'\')">Edit Post</a>';
+                                echo         '<a onclick="deleteModal(\''.$object->thread_id.'\',\''.$object->thread_title.'\')">Delete Post</a>';
+                                echo '</div>                                
+                                  </span>';
+                                  }?>
 
                             <div class="title"><?=anchor('Thread_Cont/index/'.$object->thread_id, $object->thread_title, array('class'=>'titleThread'));?> </a></div>
                             <div class="desc"> <?=$object->thread_desc?>

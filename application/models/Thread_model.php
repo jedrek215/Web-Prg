@@ -11,7 +11,7 @@ class Thread_model extends CI_Model {
 									FROM comments C, thread T, user_acct U
 									WHERE T.thread_id = "'.$thread_id.'" and
 									 C.comment_threadid = T.thread_id and
-									 C.comment_acctid = U.user_id');
+									 C.comment_acctid = U.user_id and C.status ="A" and T.status ="A"');
 		
 		if($query->num_rows()>0) {
 			return $query->result();
@@ -32,14 +32,14 @@ class Thread_model extends CI_Model {
 	public function add_views($thread_id){
 		$viewquery = $this->db->query('SELECT views
 									FROM thread
-									WHERE thread_id = "'.$thread_id.'"');
+									WHERE thread_id = "'.$thread_id.'" and status ="A"');
 
 		$res = $viewquery->result();
 		$views = $res[0]->views;
 		$views++;
 		$query = $this->db->query('UPDATE thread
 									SET views = "'.$views.'"
-									WHERE thread_id = "'.$thread_id.'"');		
+									WHERE thread_id = "'.$thread_id.'" and status ="A"');		
 	}
 
 	public function getClassID($classid) {
@@ -96,7 +96,15 @@ class Thread_model extends CI_Model {
 	         SET
 	        thread_title = '.'"'.$thread_title.'"'.',
 	        thread_desc = '.'"'.$thread_desc.'"'.'
-	        WHERE thread_id = '.'"'.$threadid.'"'.';';
+	        WHERE thread_id = '.'"'.$threadid.'"'.' and thread.status ="A";';
+	    $this->db->query($code);
+	}
+
+	public function deleteThread($threadid){
+	    $code = 'UPDATE collab.thread
+	         SET
+	        status = "D"
+	        WHERE thread_id = '.'"'.$threadid.'"'.' and thread.status ="A";';
 	    $this->db->query($code);
 	}
 }	
