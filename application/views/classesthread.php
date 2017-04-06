@@ -24,7 +24,7 @@
             </div>
             <!----------------THREAD LIST-------------------->
 
-            <?php if ($class_threads !=N ULL){ foreach($class_threads as $object):?>
+            <?php if ($class_threads !=NULL){ foreach($class_threads as $object):?>
             <div class="row thread">
                 <div class="col-md-3 byLine">
                     <img src="/round.png" width="50">
