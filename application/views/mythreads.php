@@ -46,7 +46,7 @@
 								<a href="#" class="commentLink"><?=anchor('Thread_Cont/index/'.$object->thread_id, 'Comments ('.$object->comment_count.')');?></a>
 								</span>
 								<span class="link-span">|</span>
-								<span class="link-span"><?=$object->views?> </span>
+								<span class="link-span"><?=$object->views?> Views</span>
 							</div>
 						</div>
 					<?php endforeach;} ?>

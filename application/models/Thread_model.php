@@ -42,6 +42,19 @@ class Thread_model extends CI_Model {
 									WHERE thread_id = "'.$thread_id.'" and status ="A"');		
 	}
 
+	public function decrease_views($thread_id){
+		$viewquery = $this->db->query('SELECT views
+									FROM thread
+									WHERE thread_id = "'.$thread_id.'" and status ="A"');
+
+		$res = $viewquery->result();
+		$views = $res[0]->views;
+		$views--;
+		$query = $this->db->query('UPDATE thread
+									SET views = "'.$views.'"
+									WHERE thread_id = "'.$thread_id.'" and status ="A"');		
+	}
+
 	public function getClassID($classid) {
 
 		$query = $this->db->query('SELECT *

@@ -61,6 +61,7 @@ if($this->form_validation->run() == TRUE){
      'status'			=> 'A'
      );
   $this->Thread_model->add_comment($data);
+  $this->Thread_model->decrease_views($thread_id);
   redirect('Thread_Cont/index/'.$thread_id, 'refresh'); 
 }
 
