@@ -26,7 +26,15 @@ class Follow_Cont extends CI_Controller{
     }
 
     public function follow_class(){
+        $data['follow_classid'] = $_POST['class_id'];
+        $email = $_POST['email'];
+        $result = $this->Home_model->get_userId($email);
+        if($result){
+            foreach($result as $object)
+                $data['follow_acctid'] = $object->user_id;
 
+            $this->Follow_Model->follow_class($data);
+        }
     }
 
     public function unfollow_thread(){
@@ -42,7 +50,15 @@ class Follow_Cont extends CI_Controller{
     }
 
     public function unfollow_class(){
+        $class_id = $_POST['class_id'];
+        $email = $_POST['email'];
+        $result = $this->Home_model->get_userId($email);
+        if($result){
+            foreach($result as $object)
+                $user_id = $object->user_id;
 
+            $this->Follow_Model->unfollow_class($class_id, $user_id);
+        }
     }
 }
 ?>

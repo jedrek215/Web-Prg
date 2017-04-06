@@ -206,6 +206,54 @@ function threadBtnClick(btn, thread_id, email){
     }
 }
 
+function classBtnClick(btn, class_id, email){
+    if(btn.innerText == 'Follow'){
+        btn.style.background = '#f9a825';
+        btn.style.color = 'white';
+        btn.innerText = 'Following';
+        
+        console.log(class_id);
+        console.log(email);
 
+         $.ajax({
+            type: "POST",
+            url: base_url + "Follow_Cont/follow_class",
+            data: {class_id: class_id, 
+                   email: email               
+                },
+
+            success: function(data){
+            /*This will be changed using a Ajax function on a later date so that the data is updated without page refresh*/ 
+                console.log("Data sent to server");
+            }
+            
+        });
+
+    }
+
+    else{
+        btn.style.background = 'white';
+        btn.style.color = '#f9a825';
+        btn.innerText = 'Follow'
+        
+        console.log(class_id);
+        console.log(email);
+
+         $.ajax({
+            type: "POST",
+            url: base_url + "Follow_Cont/unfollow_class",
+            data: {class_id: class_id, 
+                   email: email               
+                },
+
+            success: function(data){
+            /*This will be changed using a Ajax function on a later date so that the data is updated without page refresh*/ 
+                console.log("Data sent to server");
+            }
+            
+        });
+
+    }
+}
   </script>
 </html> 

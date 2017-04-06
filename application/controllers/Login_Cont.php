@@ -2,9 +2,7 @@
 
 class Login_Cont extends CI_Controller{
 
-	
-	public function index()
-	{
+	public function index(){
 		$this->home();
 	}
 
@@ -13,9 +11,5 @@ class Login_Cont extends CI_Controller{
 
 	}
 
-
-	
-
-	
 }
 ?>
