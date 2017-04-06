@@ -378,7 +378,7 @@ li{
 
 .followThreadBtn{
     float: right;
-    background-color: #ffffff;
+    background-color: #f9a825;
     padding: 5px 15px 5px 15px;
     color: #f9a825;
     border-radius: 6px;
@@ -389,7 +389,7 @@ li{
 
 .followClassBtn{
     float: right;
-    background-color: #ffffff;
+    background-color: #f9a825;
     padding: 5px 15px 5px 15px;
     color: #f9a825;
     border-radius: 6px;
@@ -398,10 +398,6 @@ li{
 	border:  2px solid #ed6a00
 }
 
-
-.followBtn a{
-    color: white
-}
 .title, .title .titleThread{
     padding: 10px 0px 2px 0;
     font-weight: bold;
