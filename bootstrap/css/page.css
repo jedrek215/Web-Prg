@@ -730,3 +730,8 @@ textarea{
 .setting span:hover, setting span:focus{
     color: white;
 }
+
+.commentEdit{
+    padding-top:10px;
+}
+

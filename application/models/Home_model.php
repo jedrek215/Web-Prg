@@ -9,7 +9,7 @@ class Home_model extends CI_Model {
 	function fetch_all_threads(){
 		$query = $this->db->query('SELECT *, count(com.comment_id) AS comment_count
 									FROM classes C, user_acct U, thread T
-									LEFT JOIN comments com ON COM.comment_threadid = T.thread_id
+									LEFT JOIN comments COM ON COM.comment_threadid = T.thread_id and COM.status = "A"
 									WHERE U.user_id = T.thread_acctid and C.class_id = T.thread_classid
 											and T.status ="A"
 									GROUP BY thread_id
@@ -26,7 +26,7 @@ class Home_model extends CI_Model {
 	function fetch_my_threads($username){
 		$query = $this->db->query('SELECT *, count(com.comment_id) AS comment_count
 									FROM classes C, user_acct U, thread T
-									LEFT JOIN comments com ON COM.comment_threadid = T.thread_id
+									LEFT JOIN comments COM ON COM.comment_threadid = T.thread_id and COM.status = "A"
 									WHERE U.user_id = T.thread_acctid and C.class_id = T.thread_classid
 									and U.email ="'.$username.'" and T.status ="A"
 									GROUP BY thread_id
@@ -39,15 +39,14 @@ class Home_model extends CI_Model {
 			return NULL;
 		}
 	}
-	function fetch_following_threads(){
-
-
+	function fetch_following_threads($id){
+		
 	}
 	function fetch_thread($thread_id){
 		$query = $this->db->query('SELECT *, count(com.comment_id) AS comment_count
 									FROM classes C, user_acct U, thread T
-									LEFT JOIN comments com ON COM.comment_threadid = T.thread_id
-									WHERE T.thread_id = "'.$thread_id.'" and U.user_id = T.thread_acctid and C.class_id = T.thread_classid and T.status ="A" and com.status="A"');
+									LEFT JOIN comments COM ON COM.comment_threadid = T.thread_id
+									WHERE T.thread_id = "'.$thread_id.'" and U.user_id = T.thread_acctid and C.class_id = T.thread_classid and T.status ="A" and COM.status="A"');
 				
 		if($query->num_rows()>0){
 			return $query->result();

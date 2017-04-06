@@ -8,6 +8,7 @@ class Class_Cont extends CI_Controller{
         $this->load->model('Class_Model', 'menu');
         $this->load->model('Thread_model');
         $this->load->model('Home_model');
+        $this->load->model('Follow_model');
        //$this->load->model('Arts_Model');
 		//$this->load->model('dash_model', 'model');
     }
@@ -33,6 +34,7 @@ class Class_Cont extends CI_Controller{
 		$this->load->view('include/department_nav', $data);
 		$this->load->view('classesfollowing',$data);
 		$this->load->view('include/modal',$data);
+		$this->load->view('include/jqueries');
 		}
 	}
 

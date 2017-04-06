@@ -45,7 +45,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4>Collaborate</h4>
+                    <h4>Collaborate - Edit Post</h4>
                 </div>
                 <div class="modal-body">
                     <?php echo validation_errors();
@@ -60,7 +60,7 @@
                         <textarea rows="4" cols="60" wrap="hard" name="editDesc" class="editDesc" maxlength="300" placeholder="Add Description" required></textarea>
                         </div>
                         <div class="charDiv">
-                        <span id="numChar">0</span>/300
+                        <span id="numChar1">0</span>/300
                         </div>
                         <div class="selectDiv">
                         <span><b>Subject:</b></span>
@@ -69,7 +69,34 @@
                         </span>
                         </div>
                         <div class="subDiv">
-                        <button name="collabSub" class="collabSub">Submit</button>
+                        <button name="collabSub" class="collabSub editPost">Edit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--------------------- COLLABORATE EDIT COMMENT ---------------------->s
+    <div class="modal fade" id="editComment" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>Collaborate - Edit Comment</h4>
+                </div>
+                <div class="modal-body">
+                    <?php echo validation_errors();
+                        $attributes = array('id' => 'editPostModal');
+                        echo form_open('Home_Cont/editComment', $attributes); ?>
+                        
+                        <input type="hidden" name="commentid" id="commentid" value="">
+                        <input type="hidden" name="commentdate" id="commentdate" value="<?php echo $timestamp;?>">
+                        <div class="descDiv">
+                        <textarea rows="4" cols="60" wrap="hard" name="comment" class="commentEdit" maxlength="300" placeholder="Add Description" required></textarea>
+                        </div>
+                        
+                        <div class="subDiv">
+                        <button name="collabSub" class="collabSub editCom">Edit</button>
                         </div>
                     </form>
                 </div>
@@ -83,7 +110,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4>Collaborate</h4>
+                    <h4>Collaborate - Delete Post</h4>
                 </div>
                 <div class="modal-body">
                     <?php echo validation_errors();
@@ -91,15 +118,41 @@
                         echo form_open('Home_Cont/deleteThread', $attributes); ?>
                         <input type="hidden" name="id" id="id" value="">
                         <input type="hidden" name="status" id="status" value="">
-                        <center><h4>Delete post: <span id="titlePost" name="titlePost"></span>?</h4></center>
+                        <center><h4>Post: <b><span id="titlePost" name="titlePost"></span></b><br>
+                                Do you wish to continue?   </h4></center>
                         <div class="subDiv">
-                        <button name="collabSub" class="collabSub">Submit</button>
+                        <button name="collabSub" class="collabSub deletePost">Confirm</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <!---------------------COLLABORATE DELETE MODAL---------------->
+    <div class="modal fade" id="commentDelete" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>Collaborate - Delete Comment</h4>
+                </div>
+                <div class="modal-body">
+                    <?php echo validation_errors();
+                        $attributes = array('id' => 'deletePostModal');
+                        echo form_open('Home_Cont/deleteComment', $attributes); ?>
+                        <input type="hidden" name="deleteID" id="id" value="">
+                        <input type="hidden" name="deleteStatus" id="deleteStatus" value="">
+                        <center><h4>Do you wish to continue?</h4></center>
+                        <div class="subDiv">
+                        <button name="collabSub" class="collabSub deleteCom">Confirm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
    <!---------------------EDIT PROFILE-------------------->
      <div class="modal fade" id="editProfile" role="dialog">
         <div class="modal-dialog">
@@ -176,97 +229,3 @@
         </div>
     </div>
 </body>
-     <script>
-    $('.collabDesc').keyup(function () {
-      var len = $(this).val().length;
-        //console.log(len)
-        $('#numChar').text(len);
-    });
-         
-    $('#changePW').click(function(){
-        document.getElementById("showChangePW").style.display= "block";
-        $('.change2').hide();
-    })
-    
-    $('#changeCD').click(function(){
-        document.getElementById("showChangeCD").style.display= "block";
-        $('.change1').hide();
-    })
-    $('#postCollab').validate();
-
-    $(function() {
-
-   $('#editProfileModal').validate({
-        rules: {
-            newpass: {
-                required: true,
-                minlength: 7
-            },
-            confirmpass:{
-                required: true,
-                equalTo: "#newpass"
-            }
-        },
-        
-    });
-    });
-
-
-    /*-----------------------------------------------------------------------------*/
-   base_url = '<?=base_url()?>';
-
-     function getTerm(){
-    data =  $("#editProfileModal").serialize();
-    console.log(data);
-     var method = 'edit';
-    $('#editProfileModal')[0].reset(); // reset form on modals
-    var url;
-        url = "Home_Cont/getUserInfo"; 
-
-    var id = "<?php foreach ($userinfo as $object){
-                echo $object->user_id;}?>";
-
-    console.log(base_url + url + "/" + id);
-    //Ajax Load data from ajax
-    $.ajax({
-        url : base_url + url + "/" + id,
-        type: "GET",
-        dataType: "JSON",
-        success: function(data)
-        {
-            console.log(url);
-            console.log(data[0].email);
-            $('[name="fnameEdit"]').text(data[0].Fullname);
-            $('[name="emailEdit"]').text(data[0].email);
-            $('[name="idNumEdit"]').text(data[0].idnumber);
-            $('[name="college"]').val(data[0].college);
-              $('[name="degree"]').val(data[0].degree);
-            $('#editProfile').modal('show'); // show bootstrap modal when complete loaded
- 
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-            alert('Error get data from ajax');
-        }
-    });
-    };
-
-   function openModal(id,title, desc, classes){
-        $('[name="threadid"]').val(id);
-        $('[name="editTitle"]').val(title);
-        $('[name="editDesc"]').val(desc);
-        $(".collabClass").text(classes);
-        //console.log($(".collabClass").attr("value",classes););
-        console.log('success');
-        $("#collabEdit").modal("toggle");
-    }
-
-    function deleteModal(id,title){
-        $('[name="id"]').val(id);
-        document.getElementById("titlePost").innerHTML = title;
-        $('[name="status"]').val("D");
-        console.log('success');
-        $("#collabDelete").modal("toggle");
-    }
-    </script>
-</html> 

@@ -8,6 +8,7 @@ class Classesthread_Cont extends CI_Controller{
 		$this->load->model('Thread_model');
 		$this->load->model('Class_model');
 		$this->load->model('Home_model');
+		$this->load->model('Follow_model');
 		$this->home();
 	}
 
@@ -37,6 +38,7 @@ class Classesthread_Cont extends CI_Controller{
 		$this->load->view('include/left_nav',$data);
 		$this->load->view('classesthread',$data);
 		$this->load->view('include/modal',$data);
+		$this->load->view('include/jqueries',$data);
 	}
 	}
 

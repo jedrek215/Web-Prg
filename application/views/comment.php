@@ -21,7 +21,24 @@
 					</div>
                     <div class="col-md-9" style="margin-left: -20px;">
                         <span class="className"> <?=anchor('Classesthread_Cont/index/'.$object->class_id, $object->class_code, array('class'=>'subjLink'));?></a><a href="#" class="subjLink"></a></span>
-                        <span><a href class="followBtn" >Following</a></span>
+                        <?php if($object->email != $username){
+                                     
+                                      if($this->Follow_model->isFollowing_thread($object->thread_id, $object->user_id)){
+                                         echo '<span><button id = "followThreadBtn'.$object->thread_id.'" name = "followThreadBtn'.$object->thread_id.'" class="followThreadBtn" onmouseover= "btnOver(this)" onmouseout= "btnOut(this)" onclick = "threadBtnClick(this,\''. $object->thread_id.'\',\'' .$object->email.'\')">Following</button></span>';
+                                      }
+                                      else{
+                                        echo '<span><button id = "followThreadBtn'.$object->thread_id.'" name = "followThreadBtn'.$object->thread_id.'" class="followThreadBtn" onmouseover= "btnOver(this)" onmouseout= "btnOut(this)" onclick = "threadBtnClick(this,\''. $object->thread_id.'\',\'' .$object->email.'\')">Follow</button></span>';                                      }
+                                }
+
+                                else{
+                                echo  '<span class="dropdown_sort">';
+                                echo '<button class="setting"><span class="glyphicon glyphicon-cog"></span></button>';
+                                echo '<div id="myDropdown" class="dropdown-content">';
+                                echo        '<a onclick="openModal(\''.$object->thread_id.'\',\''.$object->thread_title.'\',\''.$object->thread_desc.'\',\''.$object->class_code.'\')">Edit Post</a>';
+                                echo         '<a onclick="deleteModal(\''.$object->thread_id.'\',\''.$object->thread_title.'\')">Delete Post</a>';
+                                echo '</div>                                
+                                  </span>';
+                        }?>
                         <div class="title"><?=$object->thread_title?></div>
                         <div class="desc"><?=$object->thread_desc?></div>
                         <div>
@@ -58,6 +75,16 @@
                         <div class="name"><?=$object->email?></div>
                         <div class="datePosted"><?=$object->comment_datesub?></div>
                     </div>
+                    <?php if($object->email == $username){
+                                echo  '<span class="dropdown_sort">';
+                                echo '<button class="setting"><span class="glyphicon glyphicon-cog"></span></button>';
+                                echo '<div id="myDropdown" class="dropdown-content">';
+                                echo        '<a onclick="openComment(\''.$object->comment_id.'\',\''.$object->thread_title.'\',\''.$object->comment_desc.'\')">Edit Comment</a>';
+                                echo         '<a onclick="deleteComment(\''.$object->comment_id.'\')">Delete Comment</a>';
+                               // echo         '<a onclick="deleteModal(\''.$object->thread_id.'\',\''.$object->thread_title.'\')">Delete Post</a>';
+                                echo '</div>                                
+                                  </span>';
+                                  }?>
                     <div class ="comment"><?=$object->comment_desc?></div>
                 </div>
 				<?php endforeach; } ?>

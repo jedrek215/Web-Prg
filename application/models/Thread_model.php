@@ -96,15 +96,31 @@ class Thread_model extends CI_Model {
 	         SET
 	        thread_title = '.'"'.$thread_title.'"'.',
 	        thread_desc = '.'"'.$thread_desc.'"'.'
-	        WHERE thread_id = '.'"'.$threadid.'"'.' and thread.status ="A";';
+	        WHERE thread_id = '.'"'.$threadid.'"'.' and status ="A";';
 	    $this->db->query($code);
+	}
+
+	public function editComment($comment_id, $comment_desc){
+		    $code = 'UPDATE collab.comments
+		         SET
+		        comment_desc = '.'"'.$comment_desc.'"'.'
+		        WHERE comment_id = '.'"'.$comment_id.'"'.' and status ="A";';
+		    $this->db->query($code);
 	}
 
 	public function deleteThread($threadid){
 	    $code = 'UPDATE collab.thread
 	         SET
 	        status = "D"
-	        WHERE thread_id = '.'"'.$threadid.'"'.' and thread.status ="A";';
+	        WHERE thread_id = '.'"'.$threadid.'"'.' and status ="A";';
+	    $this->db->query($code);
+	}
+
+	public function deleteComment($id){
+	    $code = 'UPDATE collab.comments
+	         SET
+	        status = "D"
+	        WHERE comment_id = '.'"'.$id.'"'.' and status ="A";';
 	    $this->db->query($code);
 	}
 }	

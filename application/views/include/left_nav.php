@@ -25,7 +25,7 @@
                       <div class="navbar navbar-default" id="followBar" role="navigation">
                         <div class="navbar-collapse collapse sidebar-navbar-collapse">
                           <ul class="nav navbar-nav">
-                            <li><a href="#">Following</a></li>
+                            <li><a href="<?php echo base_url('/Home_Cont/followingthreads')?>">Following</a></li>
                             <li><a href="<?php echo base_url('/Home_Cont/')?>">All Threads</a></li>
                             <li><a href="<?php echo base_url('/Home_Cont/mythreads')?>">My Threads</a></li>
                           </ul>

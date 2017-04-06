@@ -30,10 +30,17 @@
                             <div class="col-md-9">
                                 <span class="className"><?=anchor('Classesthread_Cont/index/'.$object->class_id, $object->class_code, array('class'=>'subjLink'));?></a></span>
                                 <?php if($object->email != $username){
-                                echo '<span><button id = "followThreadBtn" name = "followThreadBtn" class="followThreadBtn" onmouseover= "btnOver(this)" onmouseout= "btnOut(this)" onclick = "threadBtnClick(this,'. $object->thread_id.')">Follow</button></span>';}
+                                     
+                                      if($this->Follow_model->isFollowing_thread($object->thread_id, $object->user_id)){
+                                         echo '<span><button id = "followThreadBtn'.$object->thread_id.'" name = "followThreadBtn'.$object->thread_id.'" class="followThreadBtn" onmouseover= "btnOver(this)" onmouseout= "btnOut(this)" onclick = "threadBtnClick(this,\''. $object->thread_id.'\',\'' .$object->email.'\')">Following</button></span>';
+                                      }
+                                      else{
+                                        echo '<span><button id = "followThreadBtn'.$object->thread_id.'" name = "followThreadBtn'.$object->thread_id.'" class="followThreadBtn" onmouseover= "btnOver(this)" onmouseout= "btnOut(this)" onclick = "threadBtnClick(this,\''. $object->thread_id.'\',\'' .$object->email.'\')">Follow</button></span>';                                      }
+                                }
+
                                 else{
                                 echo  '<span class="dropdown_sort">';
-                                echo '<button onclick="myFunction()" class="setting"><span class="glyphicon glyphicon-cog"></span></button>';
+                                echo '<button class="setting"><span class="glyphicon glyphicon-cog"></span></button>';
                                 echo '<div id="myDropdown" class="dropdown-content">';
                                 echo        '<a onclick="openModal(\''.$object->thread_id.'\',\''.$object->thread_title.'\',\''.$object->thread_desc.'\',\''.$object->class_code.'\')">Edit Post</a>';
                                 echo         '<a onclick="deleteModal(\''.$object->thread_id.'\',\''.$object->thread_title.'\')">Delete Post</a>';
