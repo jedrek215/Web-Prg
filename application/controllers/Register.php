@@ -25,7 +25,7 @@ class Register extends CI_Controller {
         'email'       => $this->input->post('email'),
         'password'    => $this->input->post('regPass'),
         'idnumber'    => $this->input->post('idNumber') ,
-        'degree'     => $this->input->post('degree'),
+        'degree'      => $this->input->post('degree'),
         'college'     => $this->input->post('college'),
         'lastlogin'   => $timestamp,
         'fullname'    => $this->input->post('firstName') . ' ' . $this->input->post('lastName')
