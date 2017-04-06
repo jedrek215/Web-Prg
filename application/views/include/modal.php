@@ -12,6 +12,7 @@
                         <div class="titleDiv">
                         <input type="hidden" name="username" id="username" value="<?php echo $username;?>">
                         <input type="hidden" name="dateSub" id="dateSub" value="<?php echo $timestamp;?>">
+                        <input type="hidden" name="uri" id="uri" value="<?echo base_url(uri_string());?>">
                         <input placeholder="Title" type="text" size="60" class="collabTitle" name="collabTitle" required>
                         </div>
                         <div class="descDiv">
@@ -54,6 +55,7 @@
                         <div class="titleDiv">
                         <input type="hidden" name="threadid" id="threadid" value="">
                         <input type="hidden" name="dateSub" id="dateSub" value="<?php echo $timestamp;?>">
+                        <input type="hidden" name="uri" id="uri" value="<?echo base_url(uri_string());?>">
                         <input placeholder="Title" type="text" size="60" class="editTitle" name="editTitle" required>
                         </div>
                         <div class="descDiv">
@@ -91,6 +93,7 @@
                         
                         <input type="hidden" name="commentid" id="commentid" value="">
                         <input type="hidden" name="commentdate" id="commentdate" value="<?php echo $timestamp;?>">
+                        <input type="hidden" name="uri" id="uri" value="<?echo base_url(uri_string());?>">
                         <div class="descDiv">
                         <textarea rows="4" cols="60" wrap="hard" name="comment" class="commentEdit" maxlength="300" placeholder="Add Description" required></textarea>
                         </div>
@@ -118,6 +121,7 @@
                         echo form_open('Home_Cont/deleteThread', $attributes); ?>
                         <input type="hidden" name="id" id="id" value="">
                         <input type="hidden" name="status" id="status" value="">
+                        <input type="hidden" name="uri" id="uri" value="<?echo base_url(uri_string());?>">
                         <center><h4>Post: <b><span id="titlePost" name="titlePost"></span></b><br>
                                 Do you wish to continue?   </h4></center>
                         <div class="subDiv">
@@ -143,6 +147,7 @@
                         echo form_open('Home_Cont/deleteComment', $attributes); ?>
                         <input type="hidden" name="deleteID" id="id" value="">
                         <input type="hidden" name="deleteStatus" id="deleteStatus" value="">
+                        <input type="hidden" name="uri" id="uri" value="<?echo base_url(uri_string());?>">
                         <center><h4>Do you wish to continue?</h4></center>
                         <div class="subDiv">
                         <button name="collabSub" class="collabSub deleteCom">Confirm</button>
@@ -169,6 +174,7 @@
                         <div>
                             <label>Name:</label>
                             <input type="hidden" name="useremail" id="useremail" value="<?php echo $username;?>">
+                            <input type="hidden" name="uri" id="uri" value="<?echo base_url(uri_string());?>">
                             <span name ="fnameEdit" class="fnameEdit"></span>
                         </div>
                         <div>

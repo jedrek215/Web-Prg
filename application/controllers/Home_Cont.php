@@ -99,7 +99,7 @@ class Home_Cont extends CI_Controller{
 			$this->load->view('include/homepage_head');
 			$this->load->view('include/top_nav',$data);
 			$this->load->view('include/left_nav', $data);
-			$this->load->view('mythreads', $data);
+			$this->load->view('homepage', $data);
 			$this->load->view('include/modal',$data);
 			$this->load->view('include/jqueries',$data);
 		}	
@@ -107,22 +107,22 @@ class Home_Cont extends CI_Controller{
 
 	function editThread(){
 		$this->Thread_model->editThread($this->input->post('threadid'),$this->input->post('editTitle'),$this->input->post('editDesc')); 
-		redirect('Home_Cont/mythreads','refresh');
+		redirect($this->input->post('uri'),'refresh');
 	}
 
 	function deleteThread(){
 		$this->Thread_model->deleteThread($this->input->post('id')); 
-		redirect('Home_Cont/mythreads','refresh');
+		redirect($this->input->post('uri'),'refresh');
 	}
 
 	function editComment(){
 		$this->Thread_model->editComment($this->input->post('commentid'),$this->input->post('comment')); 
-		redirect('Home_Cont/mythreads','refresh');
+		redirect($this->input->post('uri'),'refresh');
 	}
 
 	function deleteComment(){
 		$this->Thread_model->deleteComment($this->input->post('deleteID')); 
-		redirect('Home_Cont/mythreads','refresh');
+		redirect($this->input->post('uri'),'refresh');
 	}
 
 }
