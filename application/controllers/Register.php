@@ -31,7 +31,10 @@ class Register extends CI_Controller {
         'fullname'    => $this->input->post('firstName') . ' ' . $this->input->post('lastName')
       );
      $this->login_model->register($data); 
-
+     $sess_array = array(
+         'username' => $this->input->post('email')
+         );
+       $this->session->set_userdata('logged_in', $sess_array);
      redirect('Home_Cont','refresh');
    }
    else

@@ -78,21 +78,20 @@ class Home_Cont extends CI_Controller{
 		}	
 	}
 
-	public function followingthreads(){
+	public function following(){
 		if ($this->session->userdata('logged_in')){
 			$session_data = $this->session->userdata('logged_in');
 			$data['username'] = $session_data['username'];
 
 			$username = $data['username'];
-			$result = $this->Home_model->get_userId($username);
-			if($result){
-				foreach($result as $object)
-					$data['follow_acctid'] = $object->user_id;
-			}
+			$result = $this->Home_model->get_userId($data['username']);
+	    	if($result){
+	    		foreach($result as $object)
+	    			$acct_id = $object->user_id;
+	    	}
 
-			echo $data['follow_acctid'];
 			$data['followed_class'] = $this->Thread_model->getFollowedClass($data['username']);
-			$data['thread_details'] = $this->Home_model->fetch_following_threads($data['follow_acctid']);
+			$data['thread_details'] = $this->Home_model->fetch_following_threads($acct_id);
 			$data['userinfo'] = $this->Home_model->get_userId($data['username']);
 			$datestring = '%Y-%m-%d %H:%i:%s';
 			$time = time();

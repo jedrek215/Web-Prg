@@ -81,7 +81,7 @@ class Thread_model extends CI_Model {
 		$query = $this->db->query('Select *
 									FROM user_acct, followedclass, classes
 									where email = "'.$username.'"
-									and follow_classid = class_id');
+									and follow_classid = class_id and user_id = follow_acctid');
 		
 		if($query->num_rows() > 0){
 			return $query->result();

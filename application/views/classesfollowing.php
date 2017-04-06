@@ -20,8 +20,9 @@
                     </span>
                     
                     <?php 
-                    if ($this->Follow_model->isFollowing_class($object->class_id, $object->user_id)){ echo '<span><button id = "followClassBtn'.$object->class_id.'" name = "followClassBtn'.$object->class_id.'" class="followClassBtn" onmouseover= "btnOver(this)" onmouseout= "btnOut(this)" onclick = "classBtnClick(this,\''. $object->class_id.'\',\'' .$object->email.'\')" style ="color:white">Following</button></span>'; } 
-                    else{ echo '<span><button id = "followClassBtn'.$object->class_id.'" name = "followClassBtn'.$object->class_id.'" class="followClassBtn" onmouseover= "btnOver(this)" onmouseout= "btnOut(this)" onclick = "classBtnClick(this,\''. $object->class_id.'\',\'' .$object->email.'\')" style = "background:white">Follow</button></span>'; }
+                    if ($this->Follow_model->isFollowing_class($object->class_id, $username)){ 
+                        echo '<span><button id = "followClassBtn'.$object->class_id.'" name = "followClassBtn'.$object->class_id.'" class="followClassBtn" onmouseover= "btnOver(this)" onmouseout= "btnOut(this)" onclick = "classBtnClick(this,\''. $object->class_id.'\',\'' .$username.'\')" style ="color:white">Following</button></span>'; } 
+                    else{ echo '<span><button id = "followClassBtn'.$object->class_id.'" name = "followClassBtn'.$object->class_id.'" class="followClassBtn" onmouseover= "btnOver(this)" onmouseout= "btnOut(this)" onclick = "classBtnClick(this,\''. $object->class_id.'\',\'' .$username.'\')" style = "background:white">Follow</button></span>'; }
                     ?>
 
                 </div>
@@ -37,25 +38,7 @@
         </div>
         <?php endforeach; }?>
         <!------------PAGINATION---------------->
-        <div class="row">
-            <nav aria-label="...">
-                <ul class="pagination">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item active">
-                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+
     </div>
 </div>
 </div>

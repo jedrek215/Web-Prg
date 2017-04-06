@@ -22,7 +22,7 @@
   <div class="row thread">
 
    <div class="col-md-3 byLine">
-    <img src="/round.png" width="50" >
+    <img src="<?php echo base_url('/round.png')?>" width="50" >
     <div class="name"><?=$object->email?> </div>
     <div class="datePosted"><?=$object->thread_datesub?></div>
  </div>
@@ -31,11 +31,11 @@
     <span class="className"><?=anchor('Classesthread_Cont/index/'.$object->class_id, $object->class_code, array('class'=>'subjLink'));?></a></span>
     <?php if($object->email != $username){
 
-     if($this->Follow_model->isFollowing_thread($object->thread_id, $object->user_id)){
-       echo '<span><button id = "followThreadBtn'.$object->thread_id.'" name = "followThreadBtn'.$object->thread_id.'" class="followThreadBtn" onmouseover= "btnOver(this)" onmouseout= "btnOut(this)" onclick = "threadBtnClick(this,\''. $object->thread_id.'\',\'' .$object->email.'\')" style ="color:white">Following</button></span>';
+     if($this->Follow_model->isFollowing_thread($object->thread_id, $username)){
+       echo '<span><button id = "followThreadBtn'.$object->thread_id.'" name = "followThreadBtn'.$object->thread_id.'" class="followThreadBtn" onmouseover= "btnOver(this)" onmouseout= "btnOut(this)" onclick = "threadBtnClick(this,\''. $object->thread_id.'\',\'' .$username.'\')" style ="color:white">Following</button></span>';
     }
     else{
-     echo '<span><button id = "followThreadBtn'.$object->thread_id.'" name = "followThreadBtn'.$object->thread_id.'" class="followThreadBtn" onmouseover= "btnOver(this)" onmouseout= "btnOut(this)" onclick = "threadBtnClick(this,\''. $object->thread_id.'\',\'' .$object->email.'\')" style = "background:white">Follow</button></span>';
+     echo '<span><button id = "followThreadBtn'.$object->thread_id.'" name = "followThreadBtn'.$object->thread_id.'" class="followThreadBtn" onmouseover= "btnOver(this)" onmouseout= "btnOut(this)" onclick = "threadBtnClick(this,\''. $object->thread_id.'\',\'' .$username.'\')" style = "background:white">Follow</button></span>';
   }
 }
 
@@ -59,23 +59,7 @@ else{
 <?php endforeach; ?>
 
 <!---------------------PAGINATION-------------------->
-<div class="row">
- <nav aria-label="...">
-  <ul class="pagination">
-   <li class="page-item disabled">
-    <a class="page-link" href="#" tabindex="-1">Previous</a>
- </li>
- <li class="page-item"><a class="page-link" href="#">1</a></li>
- <li class="page-item active">
-    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
- </li>
- <li class="page-item"><a class="page-link" href="#">3</a></li>
- <li class="page-item">
-    <a class="page-link" href="#">Next</a>
- </li>
-</ul>
-</nav>
-</div>       
+      
 </div>
 </div>
 </div>

@@ -40,7 +40,23 @@ class Home_model extends CI_Model {
 		}
 	}
 	function fetch_following_threads($id){
-		
+		$query = $this->db->query('SELECT *, count(com.comment_id) AS comment_count
+									FROM classes C, user_acct U, thread T, followedthread F
+									LEFT JOIN comments COM ON COM.comment_threadid = F.follow_threadid and COM.status = "A"
+									WHERE U.user_id = T.thread_acctid and C.class_id = T.thread_classid and T.thread_id = F.follow_threadid
+									and F.follow_acctid="'.$id.'" and T.status ="A"
+									GROUP BY thread_id
+									order by thread_datesub DESC;');
+				
+		if($query->num_rows()>0){
+			return $query->result();
+			
+		}else {
+			return NULL;
+		}
+
+
+
 	}
 	function fetch_thread($thread_id){
 		$query = $this->db->query('SELECT *, count(com.comment_id) AS comment_count

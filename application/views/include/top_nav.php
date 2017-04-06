@@ -8,7 +8,6 @@
         </div>
         <ul class="nav navbar-nav" id="menuBar">
           <li><a href="<?php echo base_url('/Home_Cont')?>">Home</a></li>
-          <li><a href="<?php echo base_url('/Notif_Cont')?>">Notifications <span class="badge">3</span></a></li>
           <li><a href="<?php echo base_url('/Class_Cont')?>">Classes</a></li>            
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -20,8 +19,8 @@
           <li class="dropdown" id="user"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
               <img src="<?php echo base_url('userIcon.jpg')?>" width="35" ></a>
               <ul class="dropdown-menu" id="dropdownMenu">
-                <li class="nameHere"><center><?php foreach ($userinfo as $object){
-                                              echo $object->Fullname;}?></center></li>
+                <li class="nameHere"><center><?php if($userinfo){foreach ($userinfo as $object){
+                                              echo $object->email;}}?></center></li>
                 <hr>
                 <li> <a href="" id="edit" data-toggle="modal">Edit Profile</a></li>
                 <li><a href="<?php echo base_url('/Login_Cont')?>">Logout</a></li>

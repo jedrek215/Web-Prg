@@ -32,10 +32,10 @@ class Follow_model extends CI_Model {
 			WHERE follow_classid = "'.$class_id. '" and follow_acctid = "' .$user_id. '"');
 	}
 
-	public function isFollowing_thread($thread_id, $user_id){
+	public function isFollowing_thread($thread_id, $email){
 		$query = $this->db->query('SELECT *
-			FROM followedthread
-			WHERE follow_threadid = "'.$thread_id. '" and follow_acctid = "' .$user_id. '"');
+			FROM followedthread, user_acct
+			WHERE follow_threadid = "'.$thread_id. '" and email = "' .$email. '" and user_id = follow_acctid');
 
 		if($query->num_rows()==1) {
 			return TRUE;
@@ -45,10 +45,10 @@ class Follow_model extends CI_Model {
 		}
 	}
 
-	public function isFollowing_class($class_id, $user_id){
+	public function isFollowing_class($class_id, $email){
 		$query = $this->db->query('SELECT *
-			FROM followedclass
-			WHERE follow_classid = "'.$class_id. '" and follow_acctid = "' .$user_id. '"');
+			FROM followedclass, user_acct
+			WHERE follow_classid = "'.$class_id. '" and email = "' .$email. '" and user_id = follow_acctid');
 
 		if($query->num_rows()==1) {
 			return TRUE;

@@ -42,10 +42,9 @@
 
    function getThread_Class($classid){
    		$code = 'SELECT *, count(comment_id) AS comment_count
-					FROM followedclass, classes, user_acct, thread
+					FROM classes, user_acct, thread
 					LEFT JOIN comments ON comments.comment_threadid = thread.thread_id and comments.status = "A"
-					where followedclass.follow_classid = classes.class_id
-					and class_id ="'.$classid.'" and class_id = thread.thread_classid
+					where class_id ="'.$classid.'" and class_id = thread.thread_classid
 					and user_id = thread_acctid and thread.status ="A"
 					GROUP BY thread_id
 					order by thread_datesub DESC';
