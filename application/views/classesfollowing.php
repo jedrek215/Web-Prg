@@ -30,9 +30,9 @@
                     <?=$object->class_desc?></div>
                 <div>
                     <span class="link-span">
-                                20 posts</span>
+                                <span class="link-span"><?=anchor('Classesthread_Cont/index/'.$object->class_id, $object->post_count.' posts');?></span></span>
                     <span class="link-span">|</span>
-                    <span class="link-span">50 Followers</span>
+                    <span class="link-span"><?= $this->menu->getClassFollowers($object->class_id);?> Followers</span>
                 </div>
             </div>
         </div>

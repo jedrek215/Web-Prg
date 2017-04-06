@@ -91,10 +91,12 @@ class Thread_model extends CI_Model {
 	}
 
 	public function getFollowedClass($username) {
-		$query = $this->db->query('Select *
+		$query = $this->db->query('Select *, count(thread_id) AS post_count
 									FROM user_acct, followedclass, classes
+									LEFT JOIN thread ON thread.thread_classid = classes.class_id AND thread.status = "A"
 									where email = "'.$username.'"
-									and follow_classid = class_id and user_id = follow_acctid');
+									and follow_classid = class_id and user_id = follow_acctid
+									GROUP BY class_id;');
 		
 		if($query->num_rows() > 0){
 			return $query->result();

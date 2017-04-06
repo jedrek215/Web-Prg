@@ -93,11 +93,14 @@
    }
 
    function getClasses($deptid){
-	   	$code ='SELECT *
-				FROM classes, department
-				where dept_id = class_deptid and
-				dept_id ="'.$deptid.'"';
-	   			$query = $this->db->query($code);
+	   	$code ='SELECT *, count(thread_id) AS post_count
+				FROM  department, classes
+				LEFT JOIN thread ON thread.thread_classid = classes.class_id AND thread.status = "A"
+				WHERE dept_id = class_deptid and
+				dept_id ="'.$deptid.'"
+				GROUP BY class_id';
+
+	   	$query = $this->db->query($code);
 
 	     if($query -> num_rows() > 0)
 	     {
@@ -109,6 +112,23 @@
 	     }
    }
 
+   function getClassFollowers($classid){
+   		$code = 'Select count(follow_acctid) AS follower_count
+   				FROM classes c
+   				LEFT JOIN followedclass f ON f.follow_classid = c.class_id
+   				WHERE c.class_id = "'.$classid.'"
+   				GROUP BY c.class_id'; 
+   		$query = $this->db->query($code);
 
+	    if($query -> num_rows() == 1)
+	    {
+	    	$res = $query->result();
+	       	return $res[0]->follower_count;
+	    }
+	    else
+	    {
+	       return NULL;
+	    }
+   }
 }
 ?>
