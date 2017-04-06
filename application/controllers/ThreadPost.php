@@ -30,7 +30,7 @@ class ThreadPost extends CI_Controller {
         'status' => "A"
         );
      $this->thread_model->postThread($data);
-     redirect('/Home_Cont', 'refresh'); 
+     redirect($this->input->post('uri'), 'refresh'); 
  }
  
  

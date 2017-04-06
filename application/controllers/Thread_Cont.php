@@ -42,6 +42,9 @@ class Thread_Cont extends CI_Controller{
 }
 
 public function add_comment(){
+   $this->load->model('Home_model');
+   $this->load->model('Thread_model');
+   $this->load->model('Follow_model');
    $this->form_validation->set_rules('commentmessage', 'Comment Message', 'required|min_length[1]|max_length[300]');
 
    $thread_id = $this->input->post('thread_id');
