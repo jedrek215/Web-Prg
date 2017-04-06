@@ -11,7 +11,7 @@
 
         </div>
         <!----------------CLASS THREAD -------------->
-        <?php if ($followed_class !=N ULL){ foreach($followed_class as $object):?>
+        <?php if ($followed_class !=NULL){ foreach($followed_class as $object):?>
         <div class="row thread subj">
             <div class="col-md-12">
                 <div class="subjClass">

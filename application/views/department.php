@@ -21,7 +21,13 @@
                                 <span class="subjA">
                                 <?=anchor('Classesthread_Cont/index/'.$object->class_id, $object->class_code, array('class'=>'subjLink'));?></a>&nbsp;<small>(<?=$object->class_name?>)</small></a>
                                 </span>
-                                <a href class="followBtn">Following</a>
+                                <?php 
+                    if ($this->Follow_model->isFollowing_class($object->class_id, $username)){ 
+                      echo '<span><button id = "followClassBtn'.$object->class_id.'" name = "followClassBtn'.$object->class_id.'" class="followClassBtn" onmouseover= "btnOver(this)" onmouseout= "btnOut(this)" onclick = "classBtnClick(this,\''. $object->class_id.'\',\'' .$username.'\')" style ="color:white">Following</button></span>'; } 
+
+                    else{ 
+                      echo '<span><button id = "followClassBtn'.$object->class_id.'" name = "followClassBtn'.$object->class_id.'" class="followClassBtn" onmouseover= "btnOver(this)" onmouseout= "btnOut(this)" onclick = "classBtnClick(this,\''. $object->class_id.'\',\'' .$username.'\')" style = "background:white">Follow</button></span>'; }
+                    ?>
                                 
                             </div>
                             <div class="desc"> <?=$object->class_desc?></div>
